@@ -23,7 +23,7 @@ function Login() {
                      {/* <label>Password</label> */}
                      <input type="password" className="form-control" placeholder="Password"></input>
                   </div>
-                  <button type="submit" className="btn btn-black">Login</button>
+                  <button type="submit" className="btn btn-secondary btn-lg btn-block btn-black">Login</button>
                   </form>
             </div>
          </div>
