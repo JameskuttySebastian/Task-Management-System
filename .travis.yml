@@ -11,5 +11,5 @@ script:
 deploy:
   provider: heroku
   api_key:
-    secure: "f591fb83-a1c2-4adc-b60e-d91ed962b0c3"
+    secure: process.env.TRAVIS_KEY
   app: team-task-management-system
