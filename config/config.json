@@ -14,10 +14,10 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": process.env.MYSQL_USERNAME,
-    "password": process.env.MYSQL_PASSWORD,
-    "database": process.env.MYSQL_DATABASE,
-    "host": process.env.MYSQL_HOST,
+    "username": "owf84bamegybo056",
+    "password": "tb2nn6w8i6hwuxhz",
+    "database": "hmed3jpfgedt114n",
+    "host": "c584md9egjnm02sk.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql"
   }
 }
