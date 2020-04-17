@@ -1,5 +1,5 @@
 // Requiring our models and passport as we've configured it
-var db = require("../models");
+var db = require("../../models");
 var Sequelize = require("sequelize");
 //*************************************** */
 //This section is for passport autherisation for individual api route
