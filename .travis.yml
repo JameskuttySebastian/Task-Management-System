@@ -1,0 +1,15 @@
+language: node_js
+node_js: "12"
+branches:
+  only:
+    - master
+cache:
+  directories:
+    - node_modules
+script:
+  - npm run build
+deploy:
+  provider: heroku
+  api_key:
+    secure: process.env.TRAVIS_KEY
+  app: team-task-management-system
