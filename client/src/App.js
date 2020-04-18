@@ -11,11 +11,9 @@ class App extends Component {
         <Login/>
 =======
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Home from "./pages/Home";
-import Nav from "./pages/Nav";
-
+import Main from "./pages/Main";
 function App() {
+<<<<<<< HEAD
   return (
     <Router>
       <div>
@@ -27,6 +25,9 @@ function App() {
       </div>
     </Router>
   );
+=======
+  return <Main />;
+>>>>>>> cfacd2f0fd35f7dc9dfe6de6f4bbcfbfa6b39d99
 }
 
 export default App;
