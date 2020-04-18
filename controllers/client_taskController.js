@@ -11,7 +11,7 @@ module.exports = {
   },
 
   findById: function (req, res) {
-    db.ClientTask.find({
+    db.ClientTask.findOne({
       where: {
         id: req.params.id,
       },
