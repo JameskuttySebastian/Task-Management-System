@@ -24,18 +24,18 @@ module.exports = {
       //   .then((dbModel) => console.log(JSON.stringify(dbModel)));
       //if user doesnot exist, throw the error
       //   console.log(JSON.stringify(result));
-      if (!result) throw new Error("User doesnot exists");
+      if (!result) throw new Error("Username or password does not exists");
       // 2. compare crypted password and see if it checks out. Send error if not
       const valid = await compare(password, result.password);
-      if (!valid) throw new Error("Password not correct");
+      if (!valid) throw new Error("Username or password does not exists");
 
       // 3. if correct, create refresh token and access token
       const accesstoken = createAccessToken(result.email);
-      //   console.log(accesstoken);
+      console.log("loginController : accesstoken : " + accesstoken);
       // 4. send access token
       sendAccessToken(req, result.type, res, accesstoken);
     } catch (err) {
-      console.log(err);
+      console.log("loginController : err : " + err);
       res.send({
         error: `${err.message}`,
       });

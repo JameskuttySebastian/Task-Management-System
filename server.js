@@ -6,7 +6,6 @@ const { verify } = require("jsonwebtoken");
 const routes = require("./routes");
 const { hash, compare } = require("bcryptjs");
 const PORT = process.env.PORT || 3001;
-const { isAuth } = require("./auth/Auth");
 
 let db = require("./models");
 
@@ -37,7 +36,7 @@ app.use(routes);
 app.use(express.urlencoded({ extended: true })); // support url encoded bodies
 
 // Start the API server
-db.sequelize.sync().then(function () {
+db.sequelize.sync({ forse: false }).then(function () {
   app.listen(PORT, function () {
     console.log(
       "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
