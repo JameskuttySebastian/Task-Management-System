@@ -1,13 +1,12 @@
-import React from 'react';
-import AppBar from '../components/AppBar'
-import SignIn from '../components/Signin'
+import React from "react";
+// import AppBar from '../components/AppBar'
+import SignIn from "../components/Signin";
 
 function Login() {
   return (
     <div className="App">
       {/* <AppBar/> */}
-      <SignIn/>
-
+      <SignIn />
     </div>
   );
 }
