@@ -1,11 +1,28 @@
 require("dotenv").config();
 const express = require("express");
+const cookieParser = require("cookie-parser");
+const cors = require("cors");
+const { verify } = require("jsonwebtoken");
 const routes = require("./routes");
-let app = express();
+const { hash, compare } = require("bcryptjs");
 const PORT = process.env.PORT || 3001;
+const { isAuth } = require("./auth/Auth");
+
 let db = require("./models");
 
-app.use(express.static("public"));
+const { createAccessToken, sendAccessToken } = require("./auth/token.js");
+
+let app = express();
+
+// use express middleware for easier cookie handling
+app.use(cookieParser());
+
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+    credentials: true,
+  })
+);
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -17,8 +34,10 @@ if (process.env.NODE_ENV === "production") {
 
 app.use(routes);
 
+app.use(express.urlencoded({ extended: true })); // support url encoded bodies
+
 // Start the API server
-db.sequelize.sync({ force: true }).then(function () {
+db.sequelize.sync().then(function () {
   app.listen(PORT, function () {
     console.log(
       "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",

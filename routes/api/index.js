@@ -1,15 +1,24 @@
 const router = require("express").Router();
-// const bookRoutes = require("./books");
-const client_taskRoutes = require("./client_task");
-const clientRoutes = require("./client");
-const taskRoutes = require("./task");
-const userRoutes = require("./user");
 
-// Book routes
-// router.use("/books", bookRoutes);
-router.use("/api/client_task", client_taskRoutes);
-router.use("/api/client", clientRoutes);
-router.use("/api/task", taskRoutes);
-router.use("/api/user", userRoutes);
+// const routeNameRoute = require("./routeName");
+const userRegister = require("./register");
+const userLogin = require("./login");
+
+// const client_taskRoutes = require("./client_task");
+// const clientRoutes = require("./client");
+// const taskRoutes = require("./task");
+// const userRoutes = require("./user");
+
+//register a new user
+router.use("/register", userRegister);
+
+// login a auser
+router.use("/login", userLogin);
+router.use("/", userLogin);
+
+// router.use("/client_task", client_taskRoutes);
+// router.use("/client", clientRoutes);
+// router.use("/task", taskRoutes);
+// router.use("/user", userRoutes);
 
 module.exports = router;
