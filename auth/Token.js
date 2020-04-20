@@ -7,7 +7,7 @@ const createAccessToken = (userId) => {
 };
 
 const sendAccessToken = (req, type, res, accesstoken) => {
-  res.send({
+  res.status(200).json({
     accesstoken,
     email: req.body.email,
     userType: type,
