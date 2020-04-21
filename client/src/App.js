@@ -4,7 +4,7 @@ import Menu from "./components/Menu";
 import Login from "./pages/Login";
 import Landingpage from "./pages/landingpage";
 import Register from "./pages/Register";
-import Createclient from "./pages/createclient";
+import CreateClient from "./pages/CreateClient";
 import Createtask from "./pages/createtask";
 import viewusers from "./pages/viewusers";
 import viewclients from "./pages/viewclients";
@@ -165,7 +165,21 @@ function App() {
                   )
                 }
               />
-              <Route path="/createclient" component={Createclient} />
+
+              <Route
+                path="/createClient"
+                render={() =>
+                  isAuthenticated() ? (
+                    <CreateClient />
+                  ) : (
+                    <Redirect
+                      to={{
+                        pathname: "/",
+                      }}
+                    />
+                  )
+                }
+              />
               <Route path="/createtask" component={Createtask} />
               <Route path="/viewusers" component={viewusers} />
               <Route path="/viewclients" component={viewclients} />

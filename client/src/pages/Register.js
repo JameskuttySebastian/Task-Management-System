@@ -28,7 +28,7 @@ function Register() {
       ...data,
       status: "Active",
     };
-    console.log(data);
+    // console.log(data);
     API.apiRegister(data, accessToken)
       .then((response) => {
         console.log(response);
@@ -49,7 +49,7 @@ function Register() {
     >
       <h2 style={{ clear: "both" }}>USER CREATION FORM</h2>
       <TextField
-        id="outlined-basic"
+        id="name"
         variant="outlined"
         label="Name"
         type="text"
@@ -57,19 +57,19 @@ function Register() {
         inputRef={register({ required: true, minLength: 4 })}
       />
       <TextField
-        id="outlined-basic"
+        id="email"
         variant="outlined"
         label="Email Address"
         name="email"
         inputRef={register}
       />
       <TextField
-        id="outlined-basic"
+        id="password"
         variant="outlined"
         label="Password"
         name="password"
         type="password"
-        inputRef={register({ required: true, minLength: 6 })}
+        inputRef={register({ required: true, minLength: 1 })}
       />
       <FormControl variant="outlined" className={classes.formControl}>
         <InputLabel htmlFor="outlined-age-native-simple">User Type</InputLabel>

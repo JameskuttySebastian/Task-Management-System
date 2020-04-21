@@ -3,6 +3,7 @@ const router = require("express").Router();
 // const routeNameRoute = require("./routeName");
 const userRegister = require("./register");
 const userLogin = require("./login");
+const clientRoutes = require("./client");
 
 // const client_taskRoutes = require("./client_task");
 // const clientRoutes = require("./client");
@@ -13,8 +14,11 @@ const userLogin = require("./login");
 router.use("/register", userRegister);
 
 // login a auser
-router.use("/login", userLogin);
+// router.use("/login", userLogin);
 router.use("/", userLogin);
+
+//create new client
+router.use("/client", clientRoutes);
 
 // router.use("/client_task", client_taskRoutes);
 // router.use("/client", clientRoutes);

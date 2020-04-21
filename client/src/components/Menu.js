@@ -42,7 +42,7 @@ function Menu({ open, handleDrawerClose, handleLogOff, classes }) {
           Create Users
         </Link>
         <Link
-          to="/createclient"
+          to="/createClient"
           className="link"
           style={{ marginTop: 20 }}
           onClick={handleDrawerClose}
@@ -50,7 +50,7 @@ function Menu({ open, handleDrawerClose, handleLogOff, classes }) {
           Create Client
         </Link>
         <Link
-          to="/createtask"
+          to="/createTask"
           className="link"
           style={{ marginTop: 20 }}
           onClick={handleDrawerClose}
