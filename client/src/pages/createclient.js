@@ -69,8 +69,18 @@ export default function CreateClient() {
           variant="outlined"
           label="Email Address"
           name="email"
-          inputRef={register({ required: true })}
+          inputRef={register({
+            required: true,
+            pattern: {
+              value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+              message: "Invalid email address",
+            },
+          })}
         />
+
+        {errors.email && (
+          <h4 style={{ color: "red" }}>{errors.email.message}</h4>
+        )}
         <Button
           type="submit"
           variant="contained"
