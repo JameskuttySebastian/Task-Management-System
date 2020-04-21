@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Container from "@material-ui/core/Container";
 import Drawer from "@material-ui/core/Drawer";
 import Login from "./pages/Login";
@@ -8,7 +8,12 @@ import Createclient from "./pages/createclient";
 import Createtask from "./pages/createtask";
 import viewusers from "./pages/viewusers";
 import viewclients from "./pages/viewclients";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Redirect,
+  Route,
+  Switch,
+} from "react-router-dom";
 import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
@@ -20,7 +25,7 @@ import Divider from "@material-ui/core/Divider";
 import AppBar from "@material-ui/core/AppBar";
 
 // for providing user context and provided as the outer most layer
-import { UserProvider } from "./utils/context/UserContext";
+import UserContext from "./utils/context/UserContext";
 
 const drawerWidth = 240;
 
@@ -66,8 +71,15 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function App() {
+  console.log(window.location.pathname);
   const classes = useStyles();
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
+
+  //for user context
+  const [userId, setUserId] = useState("");
+  const [userType, setUserType] = useState("");
+  const [accessToken, setAccessToken] = useState("");
+
   // const theme = useTheme();
 
   const handleDrawerOpen = () => {
@@ -78,7 +90,16 @@ function App() {
   };
 
   return (
-    <UserProvider>
+    <UserContext.Provider
+      value={{
+        userId,
+        setUserId,
+        userType,
+        setUserType,
+        accessToken,
+        setAccessToken,
+      }}
+    >
       <div className="App">
         <CssBaseline />
         <AppBar
@@ -172,7 +193,9 @@ function App() {
               </Link>
             </Drawer>
             <Switch>
-              <Route exact path="/" component={Login} />
+              <Route exact path="/">
+                {accessToken ? <Redirect to="/landingpage" /> : <Login />}
+              </Route>
               <Route exact path="/landingpage" component={Landingpage} />
               <Route path="/createuser" component={Createuser} />
               <Route path="/createclient" component={Createclient} />
@@ -183,7 +206,7 @@ function App() {
           </Router>
         </Container>
       </div>
-    </UserProvider>
+    </UserContext.Provider>
   );
 }
 

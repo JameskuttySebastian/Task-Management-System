@@ -19,6 +19,7 @@ const { createAccessToken, sendAccessToken } = require("../auth/Token");
 module.exports = {
   findById: async function (req, res) {
     try {
+      console.log(req.body);
       const { email, password } = req.body;
       //1. check if user exists
       const result = await db.User.findOne({
