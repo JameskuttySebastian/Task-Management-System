@@ -71,7 +71,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function App() {
-  console.log(window.location.pathname);
   const classes = useStyles();
   const [open, setOpen] = useState(false);
 
@@ -87,6 +86,13 @@ function App() {
   };
   const handleDrawerClose = () => {
     setOpen(false);
+  };
+
+  const handleLogOff = () => {
+    setOpen(false);
+    setUserId("");
+    setUserType("");
+    setAccessToken("");
   };
 
   return (
@@ -187,7 +193,7 @@ function App() {
                 to="/"
                 className="link"
                 style={{ marginTop: 200 }}
-                onClick={handleDrawerClose}
+                onClick={handleLogOff}
               >
                 Logoff
               </Link>
