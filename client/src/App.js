@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Container from "@material-ui/core/Container";
-import Drawer from "@material-ui/core/Drawer";
+import Menu from "./components/Menu";
 import Login from "./pages/Login";
 import Landingpage from "./pages/landingpage";
 import Createuser from "./pages/createusers";
@@ -14,14 +14,12 @@ import {
   Route,
   Switch,
 } from "react-router-dom";
-import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Toolbar from "@material-ui/core/Toolbar";
-import Divider from "@material-ui/core/Divider";
 import AppBar from "@material-ui/core/AppBar";
 
 // for providing user context and provided as the outer most layer
@@ -116,88 +114,27 @@ function App() {
           })}
         >
           <Toolbar style={{ float: "right" }}>
-            <IconButton
-              color="inherit"
-              aria-label="open drawer"
-              edge="end"
-              onClick={handleDrawerOpen}
-              className={clsx(open && classes.hide)}
-            >
-              <MenuIcon />
-            </IconButton>
+            {accessToken ? (
+              <IconButton
+                color="inherit"
+                aria-label="open drawer"
+                edge="end"
+                onClick={handleDrawerOpen}
+                className={clsx(open && classes.hide)}
+              >
+                <MenuIcon />
+              </IconButton>
+            ) : null}
           </Toolbar>
         </AppBar>
         <Container>
           <Router>
-            <Drawer
-              className={classes.drawer}
-              variant="persistent"
-              anchor="right"
+            <Menu
               open={open}
-              classes={{
-                paper: classes.drawerPaper,
-              }}
-            >
-              <div className={classes.drawerHeader}></div>
-              <h3>MENU ITEMS</h3>
-              <Divider />
-              <Link
-                to="/landingpage"
-                className="link"
-                style={{ marginTop: 20 }}
-                onClick={handleDrawerClose}
-              >
-                Home
-              </Link>
-              <Link
-                to="/createuser"
-                className="link"
-                style={{ marginTop: 20 }}
-                onClick={handleDrawerClose}
-              >
-                Create Users
-              </Link>
-              <Link
-                to="/createclient"
-                className="link"
-                style={{ marginTop: 20 }}
-                onClick={handleDrawerClose}
-              >
-                Create Client
-              </Link>
-              <Link
-                to="/createtask"
-                className="link"
-                style={{ marginTop: 20 }}
-                onClick={handleDrawerClose}
-              >
-                Create Task
-              </Link>
-              <Link
-                to="/viewusers"
-                className="link"
-                style={{ marginTop: 20 }}
-                onClick={handleDrawerClose}
-              >
-                View Users
-              </Link>
-              <Link
-                to="/viewclients"
-                className="link"
-                style={{ marginTop: 20 }}
-                onClick={handleDrawerClose}
-              >
-                View Clients
-              </Link>
-              <Link
-                to="/"
-                className="link"
-                style={{ marginTop: 200 }}
-                onClick={handleLogOff}
-              >
-                Logoff
-              </Link>
-            </Drawer>
+              handleDrawerClose={handleDrawerClose}
+              classes={classes}
+              handleLogOff={handleLogOff}
+            />
             <Switch>
               <Route exact path="/">
                 {accessToken ? <Redirect to="/landingpage" /> : <Login />}
@@ -217,3 +154,73 @@ function App() {
 }
 
 export default App;
+
+// <Drawer
+//               className={classes.drawer}
+//               variant="persistent"
+//               anchor="right"
+//               open={open}
+//               classes={{
+//                 paper: classes.drawerPaper,
+//               }}
+//             >
+//               <div className={classes.drawerHeader}></div>
+//               <h3>MENU ITEMS</h3>
+//               <Divider />
+//               <Link
+//                 to="/landingpage"
+//                 className="link"
+//                 style={{ marginTop: 20 }}
+//                 onClick={handleDrawerClose}
+//               >
+//                 Home
+//               </Link>
+//               <Link
+//                 to="/createuser"
+//                 className="link"
+//                 style={{ marginTop: 20 }}
+//                 onClick={handleDrawerClose}
+//               >
+//                 Create Users
+//               </Link>
+//               <Link
+//                 to="/createclient"
+//                 className="link"
+//                 style={{ marginTop: 20 }}
+//                 onClick={handleDrawerClose}
+//               >
+//                 Create Client
+//               </Link>
+//               <Link
+//                 to="/createtask"
+//                 className="link"
+//                 style={{ marginTop: 20 }}
+//                 onClick={handleDrawerClose}
+//               >
+//                 Create Task
+//               </Link>
+//               <Link
+//                 to="/viewusers"
+//                 className="link"
+//                 style={{ marginTop: 20 }}
+//                 onClick={handleDrawerClose}
+//               >
+//                 View Users
+//               </Link>
+//               <Link
+//                 to="/viewclients"
+//                 className="link"
+//                 style={{ marginTop: 20 }}
+//                 onClick={handleDrawerClose}
+//               >
+//                 View Clients
+//               </Link>
+//               <Link
+//                 to="/"
+//                 className="link"
+//                 style={{ marginTop: 200 }}
+//                 onClick={handleLogOff}
+//               >
+//                 Logoff
+//               </Link>
+//             </Drawer>
