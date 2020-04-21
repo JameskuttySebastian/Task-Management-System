@@ -39,11 +39,14 @@ export default function SignIn() {
   // for holing login info
   // setting user information
 
-  const { setUserId, setUserType, setAccessToken } = useContext(UserContext);
+  const { setUserId, setName, setUserType, setAccessToken } = useContext(
+    UserContext
+  );
   // for getting user input
 
   const [userName, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   // Handles updating component state when the user types into the input field
   function handleSubmit(event) {
@@ -57,13 +60,15 @@ export default function SignIn() {
       .then((res) => {
         console.log(res);
         setUserId(res.data.email);
+        setName(res.data.name);
         setUserType(res.data.userType);
         setAccessToken(res.data.accesstoken);
       })
       .catch((err) => {
-        console.log(err.response);
-        console.log(err.response.status);
-        console.log(err.response.data);
+        // console.log(err.response);
+        // console.log(err.response.status);
+        console.log(err.response.data.message);
+        setError(err.response.data.message);
       });
   }
 
@@ -114,6 +119,7 @@ export default function SignIn() {
             Login
           </Button>
         </form>
+        {error ? <h4 style={{ color: "red" }}>{error}</h4> : null}
       </div>
     </Container>
   );

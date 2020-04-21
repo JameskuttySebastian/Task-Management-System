@@ -74,6 +74,7 @@ function App() {
 
   //for user context
   const [userId, setUserId] = useState("");
+  const [name, setName] = useState("");
   const [userType, setUserType] = useState("");
   const [accessToken, setAccessToken] = useState("");
 
@@ -98,6 +99,8 @@ function App() {
       value={{
         userId,
         setUserId,
+        name,
+        setName,
         userType,
         setUserType,
         accessToken,
