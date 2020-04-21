@@ -24,7 +24,7 @@ module.exports = {
     try {
       // checking the user is already logged in
       const userId = await isAuth(req, res);
-      // console.log("registerController : userId : " + userId);
+      console.log("registerController : userId : " + userId);
 
       //1. check if user exists
       // This part is omitted because sequelize will do this part using primary key

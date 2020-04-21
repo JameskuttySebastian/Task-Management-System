@@ -6,7 +6,9 @@ export default {
     return axios.post("/api/login", userInfo);
   },
   // Create new user
-  apiRegister: function (userInfo) {
-    return axios.post("/api/register", userInfo);
+  apiRegister: function (userInfo, accessToken) {
+    return axios.post("/api/register", userInfo, {
+      headers: { authorization: "Bearer " + accessToken },
+    });
   },
 };

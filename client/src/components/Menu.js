@@ -34,7 +34,7 @@ function Menu({ open, handleDrawerClose, handleLogOff, classes }) {
           Home
         </Link>
         <Link
-          to="/createuser"
+          to="/register"
           className="link"
           style={{ marginTop: 20 }}
           onClick={handleDrawerClose}

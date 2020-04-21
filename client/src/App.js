@@ -3,7 +3,7 @@ import Container from "@material-ui/core/Container";
 import Menu from "./components/Menu";
 import Login from "./pages/Login";
 import Landingpage from "./pages/landingpage";
-import Createuser from "./pages/createusers";
+import Register from "./pages/Register";
 import Createclient from "./pages/createclient";
 import Createtask from "./pages/createtask";
 import viewusers from "./pages/viewusers";
@@ -94,6 +94,13 @@ function App() {
     setAccessToken("");
   };
 
+  const isAuthenticated = () => {
+    if (accessToken) return true;
+    else {
+      return false;
+    }
+  };
+
   return (
     <UserContext.Provider
       value={{
@@ -143,7 +150,21 @@ function App() {
                 {accessToken ? <Redirect to="/landingpage" /> : <Login />}
               </Route>
               <Route exact path="/landingpage" component={Landingpage} />
-              <Route path="/createuser" component={Createuser} />
+              {/*<Route path="/register" component={Register} />*/}
+              <Route
+                path="/register"
+                render={() =>
+                  isAuthenticated() ? (
+                    <Register />
+                  ) : (
+                    <Redirect
+                      to={{
+                        pathname: "/",
+                      }}
+                    />
+                  )
+                }
+              />
               <Route path="/createclient" component={Createclient} />
               <Route path="/createtask" component={Createtask} />
               <Route path="/viewusers" component={viewusers} />
