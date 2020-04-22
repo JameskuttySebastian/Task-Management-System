@@ -2,14 +2,12 @@ require("dotenv").config();
 const express = require("express");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
-const { verify } = require("jsonwebtoken");
+
 const routes = require("./routes");
-const { hash, compare } = require("bcryptjs");
+
 const PORT = process.env.PORT || 3001;
 
 let db = require("./models");
-
-const { createAccessToken, sendAccessToken } = require("./auth/token.js");
 
 let app = express();
 
@@ -36,7 +34,7 @@ app.use(routes);
 app.use(express.urlencoded({ extended: true })); // support url encoded bodies
 
 // Start the API server
-db.sequelize.sync({ force: false }).then(function () {
+db.sequelize.sync({ force: true }).then(function () {
   app.listen(PORT, function () {
     console.log(
       "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
