@@ -12,10 +12,15 @@ export default {
     });
   },
   // Create new Client
-  apiCreateUser: function (userInfo, accessToken) {
+  apiCreateClient: function (userInfo, accessToken) {
     return axios.post("/api/client", userInfo, {
       headers: { authorization: "Bearer " + accessToken },
     });
+  },
+
+  // get all Client
+  apiGetClient: function () {
+    return axios.get("/api/client");
   },
 
   // Create new Task
