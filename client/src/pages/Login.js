@@ -5,7 +5,6 @@ import SignIn from "../components/Signin";
 function Login() {
   return (
     <div className="App">
-      {/* <AppBar/> */}
       <SignIn />
     </div>
   );
