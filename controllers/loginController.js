@@ -38,7 +38,14 @@ module.exports = {
       const accesstoken = createAccessToken(result.email);
       //   console.log("loginController : accesstoken : " + accesstoken);
       // 4. send access token
-      sendAccessToken(req, result.type, result.name, res, accesstoken);
+      sendAccessToken(
+        req,
+        result.id,
+        result.type,
+        result.name,
+        res,
+        accesstoken
+      );
     } catch (err) {
       //   console.log("loginController : err : " + err);
       res.status(401).json({ message: `${err.message}` });

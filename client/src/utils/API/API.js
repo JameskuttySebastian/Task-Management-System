@@ -17,4 +17,11 @@ export default {
       headers: { authorization: "Bearer " + accessToken },
     });
   },
+
+  // Create new Task
+  apiCreateTask: function (userInfo, accessToken) {
+    return axios.post("/api/task", userInfo, {
+      headers: { authorization: "Bearer " + accessToken },
+    });
+  },
 };

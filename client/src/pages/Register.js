@@ -79,6 +79,7 @@ function Register() {
           <option value="admin">Administrator</option>
         </Select>
       </FormControl>
+
       {errors.name && (
         <h4 style={{ color: "red" }}>
           User name needs to be minimum 4 charactors
@@ -86,7 +87,7 @@ function Register() {
       )}
       {errors.password && (
         <h4 style={{ color: "red" }}>
-          Password needs to be minimum 6 charactors
+          Password needs to be minimum 1 charactors
         </h4>
       )}
       <Button

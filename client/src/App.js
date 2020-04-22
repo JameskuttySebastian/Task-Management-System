@@ -5,7 +5,7 @@ import Login from "./pages/Login";
 import Landingpage from "./pages/landingpage";
 import Register from "./pages/Register";
 import CreateClient from "./pages/CreateClient";
-import Createtask from "./pages/createtask";
+import CreateTask from "./pages/CreateTask";
 import viewusers from "./pages/viewusers";
 import viewclients from "./pages/viewclients";
 import {
@@ -74,6 +74,7 @@ function App() {
 
   //for user context
   const [userId, setUserId] = useState("");
+  const [id, setId] = useState("");
   const [name, setName] = useState("");
   const [userType, setUserType] = useState("");
   const [accessToken, setAccessToken] = useState("");
@@ -106,6 +107,8 @@ function App() {
       value={{
         userId,
         setUserId,
+        id,
+        setId,
         name,
         setName,
         userType,
@@ -180,7 +183,7 @@ function App() {
                   )
                 }
               />
-              <Route path="/createtask" component={Createtask} />
+              <Route path="/createTask" component={CreateTask} />
               <Route path="/viewusers" component={viewusers} />
               <Route path="/viewclients" component={viewclients} />
             </Switch>
