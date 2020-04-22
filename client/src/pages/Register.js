@@ -41,7 +41,9 @@ function Register() {
       });
   }, []);
 
-  const handleInputchange = () => {};
+  const handleInputchange = () => {
+    console.log("test");
+  };
 
   const onSubmit = (data) => {
     data = {
