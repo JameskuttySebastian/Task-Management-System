@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
@@ -23,6 +23,26 @@ const useStyles = makeStyles((theme) => ({
 function Register() {
   const { accessToken } = useContext(UserContext);
   const { register, handleSubmit, errors, reset } = useForm();
+  const [clientList, setClientList] = useState([]);
+  const [userType, setUserType] = useState("admin");
+
+  // Get all the client list and if the user type is client, user must select client name
+  useEffect(() => {
+    API.apiGetClient()
+      .then((response) => {
+        console.log(response.data);
+        const clientListJsx = response.data.map((client) => (
+          <option id={client.id}>{client.name}</option>
+        ));
+        setClientList(clientListJsx);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+  const handleInputchange = () => {};
+
   const onSubmit = (data) => {
     data = {
       ...data,
@@ -71,14 +91,37 @@ function Register() {
         type="password"
         inputRef={register({ required: true, minLength: 1 })}
       />
+
       <FormControl variant="outlined" className={classes.formControl}>
         <InputLabel htmlFor="outlined-age-native-simple">User Type</InputLabel>
-        <Select native label="User Type" inputRef={register} name="type">
+        <Select
+          native
+          label="User Type"
+          // onChange={}
+          inputRef={register}
+          name="type"
+        >
           <option aria-label="None" value="" />
           <option value="client">Client</option>
           <option value="admin">Administrator</option>
         </Select>
       </FormControl>
+
+      {/* {usertype === "client" ? (*/}
+      <FormControl variant="outlined" className={classes.formControl}>
+        <InputLabel htmlFor="outlined-age-native-simple">User Type</InputLabel>
+        <Select
+          onChange={handleInputchange}
+          native
+          label="User Type"
+          inputRef={register}
+          name="type"
+        >
+          <option aria-label="None" value="" />
+          {clientList}
+        </Select>
+      </FormControl>
+      {/* ) : null}*/}
 
       {errors.name && (
         <h4 style={{ color: "red" }}>
