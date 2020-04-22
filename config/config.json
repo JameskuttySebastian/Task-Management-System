@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "anu12358",
-    "database": "tmc",
+    "database": "taskmanagement",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
