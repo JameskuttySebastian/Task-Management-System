@@ -24,7 +24,7 @@ function Register() {
   const { accessToken } = useContext(UserContext);
   const { register, handleSubmit, errors, reset } = useForm();
   const [clientList, setClientList] = useState([]);
-  const [userType, setUserType] = useState("admin");
+  const [isClient, setIsClient] = useState(false);
 
   // Get all the client list and if the user type is client, user must select client name
   useEffect(() => {
@@ -32,8 +32,9 @@ function Register() {
       .then((response) => {
         console.log(response.data);
         const clientListJsx = response.data.map((client) => (
-          <option id={client.id}>{client.name}</option>
+          <option value={client.id}>{client.name}</option>
         ));
+        console.log(clientListJsx);
         setClientList(clientListJsx);
       })
       .catch((err) => {
@@ -41,8 +42,13 @@ function Register() {
       });
   }, []);
 
-  const handleInputchange = () => {
-    console.log("test");
+  const handleUserTypeChange = (event) => {
+    console.log(event.target.value);
+    if (event.target.value === "client") {
+      setIsClient(true);
+    } else {
+      setIsClient(false);
+    }
   };
 
   const onSubmit = (data) => {
@@ -99,9 +105,9 @@ function Register() {
         <Select
           native
           label="User Type"
-          // onChange={}
           inputRef={register}
           name="type"
+          onChange={handleUserTypeChange}
         >
           <option aria-label="None" value="" />
           <option value="client">Client</option>
@@ -109,21 +115,22 @@ function Register() {
         </Select>
       </FormControl>
 
-      {/* {usertype === "client" ? (*/}
-      <FormControl variant="outlined" className={classes.formControl}>
-        <InputLabel htmlFor="outlined-age-native-simple">User Type</InputLabel>
-        <Select
-          onChange={handleInputchange}
-          native
-          label="User Type"
-          inputRef={register}
-          name="type"
-        >
-          <option aria-label="None" value="" />
-          {clientList}
-        </Select>
-      </FormControl>
-      {/* ) : null}*/}
+      {isClient ? (
+        <FormControl variant="outlined" className={classes.formControl}>
+          <InputLabel htmlFor="outlined-age-native-simple">
+            Client Name
+          </InputLabel>
+          <Select
+            native
+            label="Client Name"
+            inputRef={register}
+            name="ClientId"
+          >
+            <option aria-label="None" value="" />
+            {clientList}
+          </Select>
+        </FormControl>
+      ) : null}
 
       {errors.name && (
         <h4 style={{ color: "red" }}>
