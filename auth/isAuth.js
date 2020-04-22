@@ -15,7 +15,7 @@ const isAuth = async (req, res) => {
       return userId;
     }
   } catch (err) {
-    // console.log("Auth error : " + err.message);
+    console.log("Auth error : " + err.message);
     res.status(401).json({ message: err.message + ". Please login again" });
   }
 };

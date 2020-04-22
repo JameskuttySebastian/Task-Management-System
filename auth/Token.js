@@ -6,11 +6,13 @@ const createAccessToken = (userId) => {
   });
 };
 
-const sendAccessToken = (req, type, res, accesstoken) => {
+const sendAccessToken = (req, id, type, name, res, accesstoken) => {
   res.status(200).json({
     accesstoken,
     email: req.body.email,
     userType: type,
+    name: name,
+    id: id,
   });
 };
 
