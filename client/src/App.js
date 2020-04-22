@@ -4,8 +4,8 @@ import Menu from "./components/Menu";
 import Login from "./pages/Login";
 import Landingpage from "./pages/landingpage";
 import Register from "./pages/Register";
-import CreateClient from "./pages/CreateClient";
-import CreateTask from "./pages/CreateTask";
+import CreateClient from "./pages/createclient";
+import CreateTask from "./pages/createtask";
 import viewusers from "./pages/viewusers";
 import viewclients from "./pages/viewclients";
 import {
