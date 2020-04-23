@@ -1,12 +1,12 @@
-import React, { useEffect, useContext, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import API from "../utils/API/API";
-import UserContext from "../utils/context/UserContext";
+// import UserContext from "../utils/context/UserContext";
 import { useHistory } from "react-router-dom";
 
 function AssignTask() {
   let { id } = useParams();
-  const { accessToken } = useContext(UserContext);
+  // const { accessToken } = useContext(UserContext);
   const [taskData, setTaskData] = useState([]);
   let history = useHistory();
 
