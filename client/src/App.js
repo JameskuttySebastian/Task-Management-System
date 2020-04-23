@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Container from "@material-ui/core/Container";
 import Menu from "./components/Menu";
 import Login from "./pages/Login";
-import LandingPage from "./pages/landingpage";
+import LandingPage from "./pages/LandingPage";
 import Register from "./pages/Register";
 import CreateClient from "./pages/CreateClient";
 import CreateTask from "./pages/CreateTask";
