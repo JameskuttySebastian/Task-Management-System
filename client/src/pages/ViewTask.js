@@ -33,6 +33,7 @@ export default function ViewTask() {
             field: "tasksid",
             type: "numeric",
             width: "10%",
+            textAlign: "center",
           },
           { title: "Title", field: "taskstitle" },
           { title: "Details", field: "tasksdescription" },
