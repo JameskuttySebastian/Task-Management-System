@@ -21,11 +21,12 @@ const { isAuth } = require("../auth/isAuth");
 // }
 module.exports = {
   create: async function (req, res) {
+    console.log("registerController : req.body : " + JSON.stringify(req.body));
     try {
       // checking the user is already logged in
       const userId = await isAuth(req, res);
       // const userId = null;
-      console.log("registerController : userId : " + userId);
+      // console.log("registerController : userId : " + userId);
 
       //1. check if user exists
       // This part is omitted because sequelize will do this part using primary key
@@ -35,13 +36,13 @@ module.exports = {
         //2.  if user not exist, hash the password
         const { password } = req.body;
         const hashedPassword = hashSync(password, 10);
-        console.log("registerController : hashedPassword : " + hashedPassword);
+        // console.log("registerController : hashedPassword : " + hashedPassword);
         //3. insert the user
         const result = await db.User.create({
           ...req.body,
           password: hashedPassword,
         }).then((result) => {
-          console.log(result);
+          console.log("user creation done");
         });
         // console.log("registerController : result : " + result);
         //   res.send(JSON.stringify(result))

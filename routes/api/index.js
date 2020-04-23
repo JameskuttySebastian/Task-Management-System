@@ -8,7 +8,7 @@ const clientRoutes = require("./client");
 // const client_taskRoutes = require("./client_task");
 // const clientRoutes = require("./client");
 const taskRoutes = require("./task");
-// const userRoutes = require("./user");
+const userRoutes = require("./user");
 
 //register a new user
 router.use("/register", userRegister);
@@ -25,6 +25,6 @@ router.use("/client", clientRoutes);
 
 //For all the task related routes
 router.use("/task", taskRoutes);
-// router.use("/user", userRoutes);
+router.use("/user", userRoutes);
 
 module.exports = router;
