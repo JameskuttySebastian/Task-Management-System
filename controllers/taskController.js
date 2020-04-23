@@ -1,15 +1,35 @@
 const db = require("../models");
-const { hashSync } = require("bcryptjs");
+var Sequelize = require("sequelize");
 const { isAuth } = require("../auth/isAuth");
 
 // Defining methods for the booksController
 module.exports = {
+  // findAll: function (req, res) {
+  //   db.Task.findAll({
+  //     order: [["id", "ASC"]],
+  //   })
+  //     .then((dbModel) => res.json(dbModel))
+  //     .catch((err) => res.status(422).json(err));
+  // },
+
   findAll: function (req, res) {
-    db.Task.findAll({
-      order: [["id", "ASC"]],
-    })
+    db.sequelize
+      .query(
+        `SELECT 
+        tasks.id as tasksid,
+        tasks.title as taskstitle,
+        tasks.description as tasksdescription,
+        tasks.completedBy as taskscompletedBy,
+        tasks.status as tasksstatus,
+        tasks.createdAt as taskscreatedAt,
+        users.name as usersname
+      FROM tasks left join 
+        users on tasks.UserId = users.id
+        order by  tasks.id`,
+        { type: Sequelize.QueryTypes.SELECT }
+      )
       .then((dbModel) => res.json(dbModel))
-      .catch((err) => res.status(422).json(err));
+      .catch((err) => console.log(err));
   },
 
   findById: function (req, res) {

@@ -24,7 +24,7 @@ router.use("/client", clientRoutes);
 // router.use("/client", clientRoutes);
 
 //For all the task related routes
-router.use("/task", taskRoutes);
+router.use("/task", taskRoutes); ///api/task/:id
 router.use("/user", userRoutes);
 
 module.exports = router;

@@ -6,8 +6,10 @@ import LandingPage from "./pages/LandingPage";
 import Register from "./pages/Register";
 import CreateClient from "./pages/CreateClient";
 import CreateTask from "./pages/CreateTask";
-import ViewUsers from "./pages/ViewUsers.js";
-import ViewClients from "./pages/ViewClient";
+import ViewUser from "./pages/ViewUsers.js";
+import ViewClient from "./pages/ViewClient";
+import ViewTasks from "./pages/ViewTask";
+import AssignTasks from "./pages/AssignTask";
 import {
   BrowserRouter as Router,
   Redirect,
@@ -211,10 +213,10 @@ function App() {
                 }
               />
               <Route
-                path="/viewUsers"
+                path="/viewUser"
                 render={() =>
                   isAuthenticated() ? (
-                    <ViewUsers />
+                    <ViewUser />
                   ) : (
                     <Redirect
                       to={{
@@ -225,10 +227,38 @@ function App() {
                 }
               />
               <Route
-                path="/viewClients"
+                path="/viewClient"
                 render={() =>
                   isAuthenticated() ? (
-                    <ViewClients />
+                    <ViewClient />
+                  ) : (
+                    <Redirect
+                      to={{
+                        pathname: "/",
+                      }}
+                    />
+                  )
+                }
+              />
+              <Route
+                path="/viewTasks"
+                render={() =>
+                  isAuthenticated() ? (
+                    <ViewTasks />
+                  ) : (
+                    <Redirect
+                      to={{
+                        pathname: "/",
+                      }}
+                    />
+                  )
+                }
+              />
+              <Route
+                path="/assignTasks/:id"
+                render={() =>
+                  isAuthenticated() ? (
+                    <AssignTasks />
                   ) : (
                     <Redirect
                       to={{
