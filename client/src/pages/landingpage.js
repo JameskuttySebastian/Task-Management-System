@@ -16,12 +16,12 @@ function landingpage() {
     >
       <Grid item xs={12}>
         <div>
-          <h4>Welcome {name}</h4>
+          <h2 style={{ fontWeight: 'bold', textTransform: "uppercase" }}>welcome {name}</h2>
         </div>
         <div className="banner-text" style={{ clear: "both" }}>
-          <h1 style={{ textAlign: "center" }}>TASK MASTER PRO</h1>
+          <h1 style={{ textAlign: "center", textDecoration: "underline" }}>TASK MASTER PRO</h1>
         </div>
-        <p>
+        <p style={{ fontWeight: "bold" }}>
           Task Master Pro is an application which is allows groups of users to
           work together more cohesively to quickly and thoroughly complete
           assigned tasks. Features such as time tracking and project tracking
