@@ -11,6 +11,12 @@ export default {
       headers: { authorization: "Bearer " + accessToken },
     });
   },
+
+  // get all ussers
+  apiGetUser: function () {
+    return axios.get("/api/user");
+  },
+
   // Create new Client
   apiCreateClient: function (userInfo, accessToken) {
     return axios.post("/api/client", userInfo, {

@@ -3,7 +3,7 @@ import Grid from "@material-ui/core/Grid";
 import logo from "../task-management.jpg";
 import UserContext from "../utils/context/UserContext";
 
-function landingpage() {
+function LandingPage() {
   const { name } = useContext(UserContext);
   return (
     <div
@@ -43,4 +43,4 @@ function landingpage() {
   );
 }
 
-export default landingpage;
+export default LandingPage;

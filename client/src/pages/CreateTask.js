@@ -4,8 +4,8 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import { useForm } from "react-hook-form";
 import API from "../utils/API/API";
-import swal from "sweetalert";
 import UserContext from "../utils/context/UserContext";
+
 const useStyles = makeStyles((theme) => ({
   root: {
     "& > *": {
@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
 export default function CreateTask() {
   const { accessToken, id } = useContext(UserContext);
   const classes = useStyles();
-  const { register, handleSubmit, errors, reset } = useForm();
+  const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
     data = {
       ...data,
