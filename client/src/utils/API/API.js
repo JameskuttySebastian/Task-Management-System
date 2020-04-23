@@ -35,4 +35,14 @@ export default {
       headers: { authorization: "Bearer " + accessToken },
     });
   },
+
+  // get all tasks
+  apiGetTask: function () {
+    return axios.get("/api/task");
+  },
+
+  // get task by ID
+  apiGetTaskById: function (id) {
+    return axios.get("/api/task/" + id);
+  },
 };
