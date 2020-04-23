@@ -58,7 +58,7 @@ function Menu({ open, handleDrawerClose, handleLogOff, classes }) {
           Create Task
         </Link>
         <Link
-          to="/viewUsers"
+          to="/viewUser"
           className="link"
           style={{ marginTop: 20 }}
           onClick={handleDrawerClose}
@@ -66,12 +66,20 @@ function Menu({ open, handleDrawerClose, handleLogOff, classes }) {
           View Users
         </Link>
         <Link
-          to="/viewClients"
+          to="/viewClient"
           className="link"
           style={{ marginTop: 20 }}
           onClick={handleDrawerClose}
         >
           View Clients
+        </Link>
+        <Link
+          to="/viewTasks"
+          className="link"
+          style={{ marginTop: 20 }}
+          onClick={handleDrawerClose}
+        >
+          View and Assign Tasks
         </Link>
         <Link
           to="/"
