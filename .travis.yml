@@ -11,5 +11,5 @@ script:
 deploy:
   provider: heroku
   api_key:
-    secure: process.env.HEROKU_KEY
+    secure: d370cda0-a1be-45a1-a0a9-c67588ec527c
   app: team-task-management-system
