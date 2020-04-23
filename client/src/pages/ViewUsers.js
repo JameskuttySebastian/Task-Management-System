@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 import MaterialTable from "material-table";
 import API from "../utils/API/API";
 
-export default function ViewClient() {
-  const [clientData, setClientData] = useState([]);
+export default function ViewUsers() {
+  const [userData, setUserData] = useState([]);
   const [selectedRow, setSelectedRow] = useState(null);
 
   useEffect(() => {
-    API.apiGetClient()
+    API.apiGetUser()
       .then(async (response) => {
-        await setClientData(response.data);
+        await setUserData(response.data);
         console.log(response.data);
       })
       .catch((err) => {
@@ -17,24 +17,28 @@ export default function ViewClient() {
       });
   }, []);
 
+  // {"usersid":9,
+  // "usersemail":"james2@mail.com",
+  // "usersname":"James2",
+  // "userstype":"client",
+  // "clientsname":"Westbournepark Primary School"}
+
   return (
     <div style={{ clear: "both", marginTop: 60 }}>
       <MaterialTable
-        title="Client"
+        title="Users"
         columns={[
           {
             title: "No",
-            field: "id",
+            field: "usersid",
             type: "numeric",
           },
-          { title: "Name", field: "name" },
-
-          {
-            title: "Address",
-            field: "address",
-          },
+          { title: "Name", field: "usersname" },
+          { title: "Email", field: "usersemail" },
+          { title: "User Type", field: "userstype" },
+          { title: "Client", field: "clientsname" },
         ]}
-        data={clientData}
+        data={userData}
         onRowClick={async (evt, selectedRows) =>
           await setSelectedRow(selectedRows)
         }
