@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import Container from "@material-ui/core/Container";
 import Menu from "./components/Menu";
 import Login from "./pages/Login";
-import Landingpage from "./pages/landingpage";
+import LandingPage from "./pages/landingpage";
 import Register from "./pages/Register";
-import CreateClient from "./pages/createclient";
-import CreateTask from "./pages/createtask";
-import viewusers from "./pages/viewusers";
-import viewclients from "./pages/viewclients";
+import CreateClient from "./pages/CreateClient";
+import CreateTask from "./pages/CreateTask";
+import ViewUsers from "./pages/ViewUsers.js";
+import ViewClients from "./pages/ViewClient";
 import {
   BrowserRouter as Router,
   Redirect,
@@ -153,8 +153,21 @@ function App() {
               <Route exact path="/">
                 {accessToken ? <Redirect to="/landingpage" /> : <Login />}
               </Route>
-              <Route exact path="/landingpage" component={Landingpage} />
-              {/*<Route path="/register" component={Register} />*/}
+
+              <Route
+                path="/landingpage"
+                render={() =>
+                  isAuthenticated() ? (
+                    <LandingPage />
+                  ) : (
+                    <Redirect
+                      to={{
+                        pathname: "/",
+                      }}
+                    />
+                  )
+                }
+              />
               <Route
                 path="/register"
                 render={() =>
@@ -169,7 +182,6 @@ function App() {
                   )
                 }
               />
-
               <Route
                 path="/createClient"
                 render={() =>
@@ -184,9 +196,48 @@ function App() {
                   )
                 }
               />
-              <Route path="/createTask" component={CreateTask} />
-              <Route path="/viewusers" component={viewusers} />
-              <Route path="/viewclients" component={viewclients} />
+              <Route
+                path="/createTask"
+                render={() =>
+                  isAuthenticated() ? (
+                    <CreateTask />
+                  ) : (
+                    <Redirect
+                      to={{
+                        pathname: "/",
+                      }}
+                    />
+                  )
+                }
+              />
+              <Route
+                path="/viewUsers"
+                render={() =>
+                  isAuthenticated() ? (
+                    <ViewUsers />
+                  ) : (
+                    <Redirect
+                      to={{
+                        pathname: "/",
+                      }}
+                    />
+                  )
+                }
+              />
+              <Route
+                path="/viewClients"
+                render={() =>
+                  isAuthenticated() ? (
+                    <ViewClients />
+                  ) : (
+                    <Redirect
+                      to={{
+                        pathname: "/",
+                      }}
+                    />
+                  )
+                }
+              />
             </Switch>
           </Router>
         </Container>
@@ -196,73 +247,3 @@ function App() {
 }
 
 export default App;
-
-// <Drawer
-//               className={classes.drawer}
-//               variant="persistent"
-//               anchor="right"
-//               open={open}
-//               classes={{
-//                 paper: classes.drawerPaper,
-//               }}
-//             >
-//               <div className={classes.drawerHeader}></div>
-//               <h3>MENU ITEMS</h3>
-//               <Divider />
-//               <Link
-//                 to="/landingpage"
-//                 className="link"
-//                 style={{ marginTop: 20 }}
-//                 onClick={handleDrawerClose}
-//               >
-//                 Home
-//               </Link>
-//               <Link
-//                 to="/createuser"
-//                 className="link"
-//                 style={{ marginTop: 20 }}
-//                 onClick={handleDrawerClose}
-//               >
-//                 Create Users
-//               </Link>
-//               <Link
-//                 to="/createclient"
-//                 className="link"
-//                 style={{ marginTop: 20 }}
-//                 onClick={handleDrawerClose}
-//               >
-//                 Create Client
-//               </Link>
-//               <Link
-//                 to="/createtask"
-//                 className="link"
-//                 style={{ marginTop: 20 }}
-//                 onClick={handleDrawerClose}
-//               >
-//                 Create Task
-//               </Link>
-//               <Link
-//                 to="/viewusers"
-//                 className="link"
-//                 style={{ marginTop: 20 }}
-//                 onClick={handleDrawerClose}
-//               >
-//                 View Users
-//               </Link>
-//               <Link
-//                 to="/viewclients"
-//                 className="link"
-//                 style={{ marginTop: 20 }}
-//                 onClick={handleDrawerClose}
-//               >
-//                 View Clients
-//               </Link>
-//               <Link
-//                 to="/"
-//                 className="link"
-//                 style={{ marginTop: 200 }}
-//                 onClick={handleLogOff}
-//               >
-//                 Logoff
-//               </Link>
-//             </Drawer>
