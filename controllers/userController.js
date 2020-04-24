@@ -3,26 +3,18 @@ var Sequelize = require("sequelize");
 
 // Defining methods for the userController
 module.exports = {
-  // findAll: function (req, res) {
-  //   db.User.findAll({
-  //     order: [["id", "ASC"]],
-  //   })
-  //     .then((dbModel) => res.json(dbModel))
-  //     .catch((err) => res.status(422).json(err));
-  // },
-
   findAll: function (req, res) {
     db.sequelize
       .query(
         `SELECT 
-        users.id  as usersid ,
-        users.email as usersemail,
-        users.name as usersname,
-        users.type userstype,
-        clients.name as clientsname
-    FROM users left join 
-            clients on  users.ClientId = clients.id
-            order by  users.id`,
+        Users.id  as usersid ,
+        Users.email as usersemail,
+        Users.name as usersname,
+        Users.type userstype,
+        Clients.name as clientsname
+    FROM Users left join 
+            Clients on  Users.ClientId = Clients.id
+            order by  Users.id`,
         { type: Sequelize.QueryTypes.SELECT }
         // {"usersid":9,
         // "usersemail":"james2@mail.com",
