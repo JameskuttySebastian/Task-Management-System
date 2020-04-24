@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import MaterialTable from "material-table";
 import API from "../utils/API/API";
 import { useHistory } from "react-router-dom";
+import AssignmentOutlinedIcon from "@material-ui/icons/AssignmentOutlined";
 
 export default function ViewTask() {
   const [taskData, setTaskData] = useState([]);
@@ -61,7 +62,7 @@ export default function ViewTask() {
         }}
         actions={[
           (rowData) => ({
-            icon: "save",
+            icon: AssignmentOutlinedIcon,
             tooltip: "Assign Task",
             onClick: (event, rowData) => assignSelectedTask(event, rowData),
             disabled: rowData.tasksstatus !== "Active",

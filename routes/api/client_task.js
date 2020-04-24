@@ -1,15 +1,15 @@
 const router = require("express").Router();
 const clientTaskController = require("../../controllers/client_taskController");
 
-// Matches with "/api/books"
+// Matches with "/api/clientTask"
 router
-  .route("/api/clientTask")
+  .route("/")
   .get(clientTaskController.findAll)
   .post(clientTaskController.create);
 
-// Matches with "/api/books/:id"
+// Matches with "/api/clientTask/:id"
 router
-  .route("/api/clientTask/:id")
+  .route("/:id")
   .get(clientTaskController.findById)
   .put(clientTaskController.update)
   .delete(clientTaskController.remove);
