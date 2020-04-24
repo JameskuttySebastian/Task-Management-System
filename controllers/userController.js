@@ -3,14 +3,6 @@ var Sequelize = require("sequelize");
 
 // Defining methods for the userController
 module.exports = {
-  // findAll: function (req, res) {
-  //   db.User.findAll({
-  //     order: [["id", "ASC"]],
-  //   })
-  //     .then((dbModel) => res.json(dbModel))
-  //     .catch((err) => res.status(422).json(err));
-  // },
-
   findAll: function (req, res) {
     db.sequelize
       .query(
