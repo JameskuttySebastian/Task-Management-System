@@ -69,7 +69,7 @@ module.exports = {
 
   update: function (req, res) {
     db.Task.update(req.body, { where: { id: req.params.id } })
-      .then((dbModel) => res.json(dbModel))
+      .then((dbModel) => res.status(200).json({ message: "Task updated" }))
       .catch((err) => res.status(422).json(err));
   },
 
