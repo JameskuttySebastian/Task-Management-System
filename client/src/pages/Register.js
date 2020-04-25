@@ -33,7 +33,9 @@ function Register() {
       .then((response) => {
         console.log(response.data);
         const clientListJsx = response.data.map((client) => (
-          <option value={client.id}>{client.name}</option>
+          <option key={client.id} value={client.id}>
+            {client.name}
+          </option>
         ));
         console.log(clientListJsx);
         setClientList(clientListJsx);
