@@ -5,7 +5,7 @@ import Login from "./pages/Login";
 import LandingPage from "./pages/LandingPage";
 import Register from "./pages/Register";
 import CreateClient from "./pages/CreateClient";
-import CreateTask from "./pages/CreateTask";
+import CreateTask from "./pages/CreateTask.js";
 import ViewUser from "./pages/ViewUsers.js";
 import ViewClient from "./pages/ViewClient";
 import ViewTasks from "./pages/ViewTask";

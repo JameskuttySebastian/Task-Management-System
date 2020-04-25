@@ -3,14 +3,12 @@ import { useParams } from "react-router-dom";
 import API from "../utils/API/API";
 import UserContext from "../utils/context/UserContext";
 import { useHistory } from "react-router-dom";
-import { Container } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles({
@@ -97,19 +95,19 @@ function AssignTask() {
         <Typography gutterBottom variant="h3" component="h2">
           {taskData.title}
         </Typography>
-        <Typography variant="H4" component="h2">
+        <Typography variant="h4" component="h2">
         Description
         </Typography>
         <Typography variant="body2" color="textSecondary" component="p"style={{ marginTop: 10}}>
         {taskData.description}
         </Typography>
-        <Typography variant="H4" component="h2" style={{ marginTop: 20}}>
+        <Typography variant="h4" component="h2" style={{ marginTop: 20}}>
         Due Date
         </Typography>
         <Typography variant="body2" color="textSecondary" component="p" style={{ marginTop: 10}}>
         {taskData.completedBy}
         </Typography>
-        <Typography variant="H4" component="h2" style={{ marginTop: 20}}>
+        <Typography variant="h4" component="h2" style={{ marginTop: 20}}>
         Status
         </Typography>
         <Typography variant="body2" color="textSecondary" component="p" style={{ marginTop: 10}}>
