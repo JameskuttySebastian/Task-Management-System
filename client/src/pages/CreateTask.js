@@ -5,6 +5,7 @@ import Button from "@material-ui/core/Button";
 import { useForm } from "react-hook-form";
 import API from "../utils/API/API";
 import UserContext from "../utils/context/UserContext";
+import { Container } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -39,51 +40,53 @@ export default function CreateTask() {
   };
   return (
     <div>
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        className={classes.root}
-        noValidate
-        autoComplete="off"
-        style={{ margin: "auto", textAlign: "justify", paddingTop: 100 }}
-      >
-        <h2 style={{ clear: "both" }}>TASK CREATION FORM</h2>
-        <TextField
-          id="title"
-          variant="outlined"
-          label="Title"
-          name="title"
-          inputRef={register({ required: true })}
-        />
-        <TextField
-          id="description"
-          label="Description"
-          multiline
-          rows={12}
-          variant="outlined"
-          name="description"
-          inputRef={register({ required: true })}
-        />
-        <TextField
-          id="completedBy"
-          variant="outlined"
-          label="Due Date"
-          defaultValue={Date.now}
-          type="date"
-          name="completedBy"
-          inputRef={register({ required: true })}
-          InputLabelProps={{
-            shrink: true,
-          }}
-        />
-        <Button
-          type="submit"
-          variant="contained"
-          color="primary"
-          style={{ clear: "both", marginTop: 50 }}
+      <Container maxWidth="sm">
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className={classes.root}
+          noValidate
+          autoComplete="off"
+          style={{ margin: "auto", textAlign: "justify", paddingTop: 100 }}
         >
-          SUBMIT
-        </Button>
-      </form>
+          <h2 style={{ clear: "both" }}>TASK CREATION FORM</h2>
+          <TextField
+            id="title"
+            variant="outlined"
+            label="Title"
+            name="title"
+            inputRef={register({ required: true })}
+          />
+          <TextField
+            id="description"
+            label="Description"
+            multiline
+            rows={12}
+            variant="outlined"
+            name="description"
+            inputRef={register({ required: true })}
+          />
+          <TextField
+            id="completedBy"
+            variant="outlined"
+            label="Due Date"
+            defaultValue={Date.now}
+            type="date"
+            name="completedBy"
+            inputRef={register({ required: true })}
+            InputLabelProps={{
+              shrink: true,
+            }}
+          />
+          <Button
+            type="submit"
+            variant="contained"
+            color="primary"
+            style={{ clear: "both", marginTop: 50 }}
+          >
+            SUBMIT
+          </Button>
+        </form>
+      </Container>
     </div>
   );
 }

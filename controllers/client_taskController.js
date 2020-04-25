@@ -1,34 +1,91 @@
 const db = require("../models");
+var Sequelize = require("sequelize");
+const { isAuth } = require("../auth/isAuth");
 
 // Defining methods for the booksController
 module.exports = {
   findAll: function (req, res) {
-    db.ClientTask.findAll({
-      order: [["id", "ASC"]],
-    })
+    db.sequelize
+      .query(
+        `select 
+        ClientTasks.id as clienttasks_id, 
+        ClientTasks.status as clienttasks_status,
+        Clients.id AS clients_id, 
+        Clients.name AS clients_name, 
+        Clients.address AS clients_address,
+        Tasks.id AStasks_id, 
+        Tasks.title AStasks_title, 
+        Tasks.description AStasks_description,
+        Tasks.status AStasks_status, 
+        Tasks.UserId AStasks_UserId , 
+        Tasks.completedBy AStasks_completedBy
+                 from ClientTasks  inner join 
+                 Clients on ClientTasks.clientId = Clients.id 
+                 inner join Tasks on ClientTasks.taskId = Tasks.id order by ClientTasks.id `,
+        { type: Sequelize.QueryTypes.SELECT }
+      )
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
 
   findById: function (req, res) {
-    db.ClientTask.findOne({
-      where: {
-        id: req.params.id,
-      },
-    })
+    const id = req.params.id;
+    db.sequelize
+      .query(
+        `select 
+        ClientTasks.id as clienttasks_id, 
+        ClientTasks.status as clienttasks_status,
+        Clients.id AS clients_id, 
+        Clients.name AS clients_name, 
+        Clients.address AS clients_address,
+        Tasks.id AStasks_id,         
+        Tasks.title AStasks_title, 
+        Tasks.description AStasks_description,
+        Tasks.status AStasks_status, 
+        Tasks.UserId AStasks_UserId , 
+        Tasks.completedBy AStasks_completedBy
+                 from ClientTasks  inner join 
+                 Clients on ClientTasks.clientId = Clients.id 
+                 inner join Tasks on ClientTasks.taskId = Tasks.id 
+                 WHERE ClientTasks.clientId = :clientId`,
+        {
+          replacements: { clientId: id },
+          type: Sequelize.QueryTypes.SELECT,
+        }
+      )
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
 
-  create: function (req, res) {
-    db.ClientTask.create(req.body)
-      .then((dbModel) => res.json(dbModel))
-      .catch((err) => res.status(422).json(err));
+  create: async function (req, res) {
+    console.log(req.body);
+    try {
+      // checking the user is already logged in
+      const userId = await isAuth(req, res);
+      console.log("client_taskController : userId : " + userId);
+
+      if (userId !== null && userId !== undefined) {
+        await db.ClientTask.bulkCreate(req.body).then((result) => {
+          res.status(200).json({ message: "ClientTasks created" });
+        });
+        // console.log("client_taskController : result : " + result);
+        //   res.send(JSON.stringify(result))
+        //   res.json(result);
+        // res.send({ message: "User created" });
+      } else {
+        throw new Error("Please login again");
+      }
+    } catch (err) {
+      console.log("Auth error : " + err.message);
+      res.status(401).json({ message: err.message });
+    }
   },
 
   update: function (req, res) {
     db.ClientTask.update(req.body, { where: { id: req.params.id } })
-      .then((dbModel) => res.json(dbModel))
+      .then((dbModel) =>
+        res.status(200).json({ message: "ClientTasks updated" })
+      )
       .catch((err) => res.status(422).json(err));
   },
 

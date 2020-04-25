@@ -16,16 +16,16 @@ module.exports = {
     db.sequelize
       .query(
         `SELECT 
-        tasks.id as tasksid,
-        tasks.title as taskstitle,
-        tasks.description as tasksdescription,
-        tasks.completedBy as taskscompletedBy,
-        tasks.status as tasksstatus,
-        tasks.createdAt as taskscreatedAt,
-        users.name as usersname
-      FROM tasks left join 
-        users on tasks.UserId = users.id
-        order by  tasks.id`,
+        Tasks.id as tasksid,
+        Tasks.title as taskstitle,
+        Tasks.description as tasksdescription,
+        Tasks.completedBy as taskscompletedBy,
+        Tasks.status as tasksstatus,
+        Tasks.createdAt as taskscreatedAt,
+        Users.name as usersname
+      FROM Tasks left join 
+        Users on Tasks.UserId = Users.id
+        order by  Tasks.id`,
         { type: Sequelize.QueryTypes.SELECT }
       )
       .then((dbModel) => res.json(dbModel))
@@ -69,7 +69,7 @@ module.exports = {
 
   update: function (req, res) {
     db.Task.update(req.body, { where: { id: req.params.id } })
-      .then((dbModel) => res.json(dbModel))
+      .then((dbModel) => res.status(200).json({ message: "Task updated" }))
       .catch((err) => res.status(422).json(err));
   },
 

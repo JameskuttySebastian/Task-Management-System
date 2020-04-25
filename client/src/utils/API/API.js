@@ -45,4 +45,17 @@ export default {
   apiGetTaskById: function (id) {
     return axios.get("/api/task/" + id);
   },
+  //assign task to user
+  apiAssignTask: function (clientTaskList, accessToken) {
+    return axios.post("/api/clintTask", clientTaskList, {
+      headers: { authorization: "Bearer " + accessToken },
+    });
+  },
+
+  //update task status
+  apiUpdateTaskStatus: function (id, status, accessToken) {
+    return axios.put("/api/task/" + id, status, {
+      headers: { authorization: "Bearer " + accessToken },
+    });
+  },
 };
