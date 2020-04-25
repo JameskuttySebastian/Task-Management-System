@@ -68,6 +68,10 @@ const useStyles = makeStyles((theme) => ({
     ...theme.mixins.toolbar,
     justifyContent: "flex-start",
   },
+  link: {
+    marginTop: 20,
+    marginLeft: 50,
+  },
 }));
 
 function App() {
@@ -153,7 +157,6 @@ function App() {
               handleDrawerClose={handleDrawerClose}
               classes={classes}
               handleLogOff={handleLogOff}
-              
             />
             <Switch>
               <Route exact path="/">
