@@ -4,21 +4,12 @@ import API from "../utils/API/API";
 import UserContext from "../utils/context/UserContext";
 import { useHistory } from "react-router-dom";
 import Button from "@material-ui/core/Button";
-<<<<<<< HEAD
-import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import Typography from '@material-ui/core/Typography';
-=======
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
->>>>>>> master
 
 const useStyles = makeStyles({
   root: {
