@@ -76,7 +76,7 @@ function Menu({ open, handleDrawerClose, handleLogOff, classes }) {
         <Link
           to="/viewTasks"
           className="link"
-          style={{ marginTop: 20 }}
+          style={{ marginTop: 20, marginLeft: 50 }}
           onClick={handleDrawerClose}
         >
           View and Assign Tasks
