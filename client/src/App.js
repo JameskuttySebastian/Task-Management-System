@@ -153,6 +153,7 @@ function App() {
               handleDrawerClose={handleDrawerClose}
               classes={classes}
               handleLogOff={handleLogOff}
+              
             />
             <Switch>
               <Route exact path="/">
