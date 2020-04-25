@@ -122,7 +122,11 @@ function App() {
       <div className="App">
         <CssBaseline />
         <AppBar
-          style={{ display: "block" }}
+          style={{
+            display: "block",
+            backgroundColor: "#01579b",
+            color: "#FFF",
+          }}
           position="fixed"
           className={clsx(classes.appBar, {
             [classes.appBarShift]: open,
