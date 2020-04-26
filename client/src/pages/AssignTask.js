@@ -158,8 +158,7 @@ function AssignTask() {
           onClick={() => history.goBack()}
           variant="contained"
           style={{ clear: "both" }}
-        >
-          Cancel
+        > Cancel
         </Button>
       </CardActions>
     </Card>
