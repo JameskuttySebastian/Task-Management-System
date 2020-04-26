@@ -37,7 +37,6 @@ export default function ViewTask() {
             textAlign: "center",
           },
           { title: "Title", field: "taskstitle" },
-          { title: "Details", field: "tasksdescription" },
           { title: "Completed by", field: "taskscompletedBy" },
           { title: "Status", field: "tasksstatus" },
           { title: "Created by", field: "usersname" },
