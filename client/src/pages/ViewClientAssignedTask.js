@@ -4,15 +4,15 @@ import API from "../utils/API/API";
 import { useHistory } from "react-router-dom";
 import AssignmentOutlinedIcon from "@material-ui/icons/AssignmentOutlined";
 
-export default function ViewTask() {
-  const [taskData, setTaskData] = useState([]);
+export default function ViewAssignedTask() {
+  const [assignedTaskData, setAssignedTaskData] = useState([]);
   const [selectedRow, setSelectedRow] = useState(null);
   const history = useHistory();
 
   useEffect(() => {
-    API.apiGetTask()
+    API.apiGetAssignedTask()
       .then((response) => {
-        setTaskData(response.data);
+        setAssignedTaskData(response.data);
         // console.log(response.data);
       })
       .catch((err) => {
@@ -20,28 +20,29 @@ export default function ViewTask() {
       });
   }, []);
 
-  const assignSelectedTask = (e, rowData) => {
-    history.push(`/assignTasks/${rowData.tasksid}`);
+  const viewAssignedTaskDetail = (e, rowData) => {
+    history.push(`/viewAssignedTaskDetail/${rowData.clienttasks_id}`);
   };
 
   return (
     <div style={{ clear: "both", marginTop: 60 }}>
       <MaterialTable
-        title="Tasks"
+        title="All Assigned Tasks"
         columns={[
           {
             title: "ID No",
-            field: "tasksid",
+            field: "clienttasks_id",
             type: "numeric",
             width: "10%",
             textAlign: "center",
           },
-          { title: "Title", field: "taskstitle" },
-          { title: "Completed by", field: "taskscompletedBy" },
-          { title: "Status", field: "tasksstatus" },
-          { title: "Created by", field: "usersname" },
+          { title: "Client", field: "clients_name" },
+          { title: "Title", field: "tasks_title" },
+          { title: "Details", field: "tasks_description" },
+          { title: "Completed by", field: "tasks_completedBy" },
+          { title: "Status", field: "clienttasks_status" },
         ]}
-        data={taskData}
+        data={assignedTaskData}
         onRowClick={async (evt, selectedRows) =>
           await setSelectedRow(selectedRows)
         }
@@ -62,9 +63,8 @@ export default function ViewTask() {
         actions={[
           (rowData) => ({
             icon: AssignmentOutlinedIcon,
-            tooltip: "Assign Task",
-            onClick: (event, rowData) => assignSelectedTask(event, rowData),
-            disabled: rowData.tasksstatus !== "Active",
+            tooltip: "View Details",
+            onClick: (event, rowData) => viewAssignedTaskDetail(event, rowData),
           }),
         ]}
       />
