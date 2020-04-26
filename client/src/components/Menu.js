@@ -72,7 +72,14 @@ function Menu({ open, handleDrawerClose, handleLogOff, classes }) {
           className={classes.link}
           onClick={handleDrawerClose}
         >
-          View and Assign Tasks
+          Assign Tasks
+        </Link>
+        <Link
+          to="/viewAssignedTask"
+          className={classes.link}
+          onClick={handleDrawerClose}
+        >
+          View Assigned Tasks
         </Link>
         <Link
           to="/"
