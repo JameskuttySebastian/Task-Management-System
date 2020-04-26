@@ -28,8 +28,11 @@ module.exports = {
         order by  Tasks.id`,
         { type: Sequelize.QueryTypes.SELECT }
       )
-      .then((dbModel) => res.json(dbModel))
-      .catch((err) => console.log(err));
+      .then((dbModel) => res.status(200).json(dbModel))
+      .catch((err) => {
+        console.log(err);
+        res.status(402).json({ message: "Task list info not found" });
+      });
   },
 
   findById: function (req, res) {
@@ -38,8 +41,11 @@ module.exports = {
         id: req.params.id,
       },
     })
-      .then((dbModel) => res.json(dbModel))
-      .catch((err) => res.status(422).json(err));
+      .then((dbModel) => res.status(200).json(dbModel))
+      .catch((err) => {
+        console.log(err);
+        res.status(402).json({ message: "Task info not found" });
+      });
   },
 
   create: async function (req, res) {
@@ -70,7 +76,10 @@ module.exports = {
   update: function (req, res) {
     db.Task.update(req.body, { where: { id: req.params.id } })
       .then((dbModel) => res.status(200).json({ message: "Task updated" }))
-      .catch((err) => res.status(422).json(err));
+      .catch((err) => {
+        console.log(err);
+        res.status(422).json({ message: "Task update failed" });
+      });
   },
 
   remove: function (req, res) {

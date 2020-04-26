@@ -4,6 +4,7 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import { useForm } from "react-hook-form";
 import API from "../utils/API/API";
+import swal from "sweetalert";
 import UserContext from "../utils/context/UserContext";
 import { Container } from "@material-ui/core";
 
@@ -28,13 +29,15 @@ export default function CreateTask() {
       status: "Active",
     };
 
-    console.log(data);
+    // console.log(data);
     API.apiCreateTask(data, accessToken)
       .then((response) => {
-        console.log(response);
+        // console.log(response);
+        swal("Task created sucessfully!");
       })
       .catch((err) => {
         console.log(err);
+        swal("oooooPs,,,,,Error!");
       });
     reset();
   };

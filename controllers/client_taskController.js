@@ -24,7 +24,7 @@ module.exports = {
                  inner join Tasks on ClientTasks.taskId = Tasks.id order by ClientTasks.id `,
         { type: Sequelize.QueryTypes.SELECT }
       )
-      .then((dbModel) => res.json(dbModel))
+      .then((dbModel) => res.status(200).json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
 
@@ -53,7 +53,7 @@ module.exports = {
           type: Sequelize.QueryTypes.SELECT,
         }
       )
-      .then((dbModel) => res.json(dbModel))
+      .then((dbModel) => res.status(200).json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
 
@@ -91,7 +91,7 @@ module.exports = {
 
   remove: function (req, res) {
     db.ClientTask.destroy({ where: { id: req.params.id } })
-      .then((dbModel) => res.json(dbModel))
+      .then((dbModel) => res.status(200).json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
 };
