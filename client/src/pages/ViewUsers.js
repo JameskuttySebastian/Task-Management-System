@@ -24,44 +24,54 @@ export default function ViewUsers() {
   // "userstype":"client",
   // "clientsname":"Westbournepark Primary School"}
 
-  const customColumnStyle = { maxWidth: "10%", backgroundColor: "green" };
+  const customColumnStyle = { maxWidth: "100%", backgroundColor: "green" };
 
   return (
 
-    <div style={{ clear: "both", marginTop: 100 }}>
+    <div style={{ clear: "both", marginTop: 100}}>
       <MaterialTable
         
         title="Users"
+        
+        
         columns={[
-          {
+          { 
+            width: 20,
             title: "No",
             field: "usersid",
             type: "numeric",
+            
           },
-          { title: "Name", field: "usersname" },
-          { title: "Email", field: "usersemail" },
-          { title: "User Type", field: "userstype" },
-          { title: "Client", field: "clientsname" },
-        ]}
+          { title: "Name", field: "usersname", },
+          { title: "Email", field: "usersemail",  },
+          { title: "User Type", field: "userstype",  },
+          { title: "Client", field: "clientsname", },
+
+        ]
+      }
+
+
         data={userData}
         onRowClick={async (evt, selectedRows) =>
           await setSelectedRow(selectedRows)
         }
         options={{
           sorting: true,
-          align: 'center',
+          
+          
           headerStyle: {
             backgroundColor: "#01579b",
             color: "#FFF",
-            
+            textAlign: "left"
           },
+
 
           rowStyle: (rowData) => ({
             backgroundColor:
               selectedRow && selectedRow.tableData.id === rowData.tableData.id
                 ? "#EEE"
                 : "#FFF",
-                
+             
                 
           }),
         }}

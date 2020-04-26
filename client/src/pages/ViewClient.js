@@ -23,6 +23,7 @@ export default function ViewClient() {
         title="Client"
         columns={[
           {
+            width: 20,
             title: "No",
             field: "id",
             type: "numeric",

@@ -104,34 +104,34 @@ function AssignTask() {
           <Typography gutterBottom variant="h3" component="h2">
             {taskData.title}
           </Typography>
-          <Typography variant="h4" component="h2">
+          <Typography variant="h5" component="h2">
             Description
           </Typography>
           <Typography
             variant="body2"
-            color="textSecondary"
+            // color="textSecondary"
             component="p"
             style={{ marginTop: 10 }}
           >
             {taskData.description}
           </Typography>
-          <Typography variant="h4" component="h2" style={{ marginTop: 20 }}>
+          <Typography variant="h5" component="h2" style={{ marginTop: 20 }}>
             Due Date
           </Typography>
           <Typography
             variant="body2"
-            color="textSecondary"
+            // color="textSecondary"
             component="p"
             style={{ marginTop: 10 }}
           >
             {taskData.completedBy}
           </Typography>
-          <Typography variant="h4" component="h2" style={{ marginTop: 20 }}>
+          <Typography variant="h5" component="h2" style={{ marginTop: 20 }}>
             Status
           </Typography>
           <Typography
             variant="body2"
-            color="textSecondary"
+            // color="textSecondary"
             component="p"
             style={{ marginTop: 10 }}
           >
