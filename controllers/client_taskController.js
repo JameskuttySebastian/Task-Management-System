@@ -13,12 +13,12 @@ module.exports = {
         Clients.id AS clients_id, 
         Clients.name AS clients_name, 
         Clients.address AS clients_address,
-        Tasks.id AStasks_id, 
-        Tasks.title AStasks_title, 
-        Tasks.description AStasks_description,
-        Tasks.status AStasks_status, 
-        Tasks.UserId AStasks_UserId , 
-        Tasks.completedBy AStasks_completedBy
+        Tasks.id AS tasks_id, 
+        Tasks.title AS tasks_title, 
+        Tasks.description AS tasks_description,
+        Tasks.status AS tasks_status, 
+        Tasks.UserId AS tasks_UserId , 
+        Tasks.completedBy AS tasks_completedBy
                  from ClientTasks  inner join 
                  Clients on ClientTasks.clientId = Clients.id 
                  inner join Tasks on ClientTasks.taskId = Tasks.id order by ClientTasks.id `,
@@ -38,18 +38,18 @@ module.exports = {
         Clients.id AS clients_id, 
         Clients.name AS clients_name, 
         Clients.address AS clients_address,
-        Tasks.id AStasks_id,         
-        Tasks.title AStasks_title, 
-        Tasks.description AStasks_description,
-        Tasks.status AStasks_status, 
-        Tasks.UserId AStasks_UserId , 
-        Tasks.completedBy AStasks_completedBy
+        Tasks.id AS tasks_id,         
+        Tasks.title AS tasks_title, 
+        Tasks.description AS tasks_description,
+        Tasks.status AS tasks_status, 
+        Tasks.UserId AS tasks_UserId , 
+        Tasks.completedBy AS tasks_completedBy
                  from ClientTasks  inner join 
                  Clients on ClientTasks.clientId = Clients.id 
                  inner join Tasks on ClientTasks.taskId = Tasks.id 
-                 WHERE ClientTasks.clientId = :clientId`,
+                 WHERE ClientTasks.id = :ClientTasksId`,
         {
-          replacements: { clientId: id },
+          replacements: { ClientTasksId: id },
           type: Sequelize.QueryTypes.SELECT,
         }
       )

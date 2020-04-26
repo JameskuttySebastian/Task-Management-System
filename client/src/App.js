@@ -10,6 +10,9 @@ import ViewUser from "./pages/ViewUsers.js";
 import ViewClient from "./pages/ViewClient";
 import ViewTasks from "./pages/ViewTask";
 import AssignTasks from "./pages/AssignTask";
+import ViewAssignedTask from "./pages/ViewAssignedTask";
+import ViewAssignedTaskDetail from "./pages/ViewAssignedTaskDetail";
+
 import {
   BrowserRouter as Router,
   Redirect,
@@ -261,6 +264,36 @@ function App() {
                   )
                 }
               />
+
+              <Route
+                path="/viewAssignedTask"
+                render={() =>
+                  isAuthenticated() ? (
+                    <ViewAssignedTask />
+                  ) : (
+                    <Redirect
+                      to={{
+                        pathname: "/",
+                      }}
+                    />
+                  )
+                }
+              />
+              <Route
+                path="/ViewAssignedTaskDetail/:id"
+                render={() =>
+                  isAuthenticated() ? (
+                    <ViewAssignedTaskDetail />
+                  ) : (
+                    <Redirect
+                      to={{
+                        pathname: "/",
+                      }}
+                    />
+                  )
+                }
+              />
+
               <Route
                 path="/assignTasks/:id"
                 render={() =>

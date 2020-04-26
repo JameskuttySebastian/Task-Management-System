@@ -45,6 +45,7 @@ export default {
   apiGetTaskById: function (id) {
     return axios.get("/api/task/" + id);
   },
+
   //assign task to user
   apiAssignTask: function (clientTaskList, accessToken) {
     return axios.post("/api/clintTask", clientTaskList, {
@@ -55,6 +56,22 @@ export default {
   //update task status
   apiUpdateTaskStatus: function (id, status, accessToken) {
     return axios.put("/api/task/" + id, status, {
+      headers: { authorization: "Bearer " + accessToken },
+    });
+  },
+
+  // get all tasks
+  apiGetAssignedTask: function () {
+    return axios.get("/api/assignedTask");
+  },
+
+  // get task by ID
+  apiGetAssignedTaskById: function (id) {
+    return axios.get("/api/assignedTask/" + id);
+  },
+
+  apiUpdateAssignedTaskStatus: function (id, status, accessToken) {
+    return axios.put("/api/assignedTask/" + id, status, {
       headers: { authorization: "Bearer " + accessToken },
     });
   },
