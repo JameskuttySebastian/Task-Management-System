@@ -91,7 +91,7 @@ function AssignTask() {
 
       // const updateTaskStatusMsg = await updateTaskStatus(id);
     } catch (err) {
-      console.log(err);
+      console.log("Task assignment failed");
     }
   };
 
