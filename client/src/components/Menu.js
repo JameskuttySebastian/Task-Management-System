@@ -23,68 +23,68 @@ function Menu({ open, handleDrawerClose, handleLogOff, classes }) {
         }}
       >
         <div className={classes.drawerHeader}></div>
-        <h3>MENU ITEMS</h3>
+        <h3 style={{ marginLeft: 20 }}>MENU ITEMS</h3>
         <Divider />
         <Link
           to="/landingpage"
-          className="link"
-          style={{ marginTop: 20 }}
+          className={classes.link}
           onClick={handleDrawerClose}
         >
           Home
         </Link>
         <Link
           to="/register"
-          className="link"
-          style={{ marginTop: 20 }}
+          className={classes.link}
           onClick={handleDrawerClose}
         >
           Create Users
         </Link>
         <Link
           to="/createClient"
-          className="link"
-          style={{ marginTop: 20 }}
+          className={classes.link}
           onClick={handleDrawerClose}
         >
           Create Client
         </Link>
         <Link
           to="/createTask"
-          className="link"
-          style={{ marginTop: 20 }}
+          className={classes.link}
           onClick={handleDrawerClose}
         >
           Create Task
         </Link>
         <Link
           to="/viewUser"
-          className="link"
-          style={{ marginTop: 20 }}
+          className={classes.link}
           onClick={handleDrawerClose}
         >
           View Users
         </Link>
         <Link
           to="/viewClient"
-          className="link"
-          style={{ marginTop: 20 }}
+          className={classes.link}
           onClick={handleDrawerClose}
         >
           View Clients
         </Link>
         <Link
           to="/viewTasks"
-          className="link"
-          style={{ marginTop: 20 }}
+          className={classes.link}
           onClick={handleDrawerClose}
         >
-          View and Assign Tasks
+          Assign Tasks
+        </Link>
+        <Link
+          to="/viewAssignedTask"
+          className={classes.link}
+          onClick={handleDrawerClose}
+        >
+          View Assigned Tasks
         </Link>
         <Link
           to="/"
-          className="link"
-          style={{ marginTop: 200 }}
+          className={classes.link}
+          style={{ marginTop: 200, marginLeft: 50 }}
           onClick={handleLogOff}
         >
           Logoff
@@ -105,28 +105,27 @@ function Menu({ open, handleDrawerClose, handleLogOff, classes }) {
         }}
       >
         <div className={classes.drawerHeader}></div>
-        <h3>MENU ITEMS</h3>
+        <h3 style={{ marginLeft: 20 }}>MENU ITEMS</h3>
         <Divider />
         <Link
           to="/landingpage"
-          className="link"
-          style={{ marginTop: 20 }}
+          className={classes.link}
+          style={{ marginTop: 20, marginLeft: 50 }}
           onClick={handleDrawerClose}
         >
           Home
         </Link>
         <Link
-          to="/createuser"
-          className="link"
-          style={{ marginTop: 20 }}
+          to="/register"
+          className={classes.link}
           onClick={handleDrawerClose}
         >
           Create Users
         </Link>
         <Link
           to="/"
-          className="link"
-          style={{ marginTop: 200 }}
+          className={classes.link}
+          style={{ marginTop: 200, marginLeft: 50 }}
           onClick={handleLogOff}
         >
           Logoff

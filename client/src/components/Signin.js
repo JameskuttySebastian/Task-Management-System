@@ -68,7 +68,7 @@ export default function SignIn() {
       .catch((err) => {
         // console.log(err.response);
         // console.log(err.response.status);
-        console.log(err.response.data.message);
+        // console.log(err.response.data.message);
         setError(err.response.data.message);
       });
   }

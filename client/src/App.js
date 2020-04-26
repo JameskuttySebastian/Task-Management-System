@@ -10,6 +10,9 @@ import ViewUser from "./pages/ViewUsers.js";
 import ViewClient from "./pages/ViewClient";
 import ViewTasks from "./pages/ViewTask";
 import AssignTasks from "./pages/AssignTask";
+import ViewAssignedTask from "./pages/ViewAssignedTask";
+import ViewAssignedTaskDetail from "./pages/ViewAssignedTaskDetail";
+
 import {
   BrowserRouter as Router,
   Redirect,
@@ -67,6 +70,10 @@ const useStyles = makeStyles((theme) => ({
     // necessary for content to be below app bar
     ...theme.mixins.toolbar,
     justifyContent: "flex-start",
+  },
+  link: {
+    marginTop: 20,
+    marginLeft: 50,
   },
 }));
 
@@ -257,6 +264,36 @@ function App() {
                   )
                 }
               />
+
+              <Route
+                path="/viewAssignedTask"
+                render={() =>
+                  isAuthenticated() ? (
+                    <ViewAssignedTask />
+                  ) : (
+                    <Redirect
+                      to={{
+                        pathname: "/",
+                      }}
+                    />
+                  )
+                }
+              />
+              <Route
+                path="/ViewAssignedTaskDetail/:id"
+                render={() =>
+                  isAuthenticated() ? (
+                    <ViewAssignedTaskDetail />
+                  ) : (
+                    <Redirect
+                      to={{
+                        pathname: "/",
+                      }}
+                    />
+                  )
+                }
+              />
+
               <Route
                 path="/assignTasks/:id"
                 render={() =>
