@@ -38,7 +38,6 @@ export default function ViewAssignedTask() {
           },
           { title: "Client", field: "clients_name" },
           { title: "Title", field: "tasks_title" },
-          { title: "Details", field: "tasks_description" },
           { title: "Completed by", field: "tasks_completedBy" },
           { title: "Status", field: "clienttasks_status" },
         ]}
