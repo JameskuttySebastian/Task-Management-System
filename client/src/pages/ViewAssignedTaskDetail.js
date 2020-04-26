@@ -88,7 +88,7 @@ function ViewAssignedTaskDetail() {
           variant="contained"
           style={{ clear: "both" }}
         >
-          Cancle
+          Cancel
         </Button>
       </CardActions>
     </Card>
