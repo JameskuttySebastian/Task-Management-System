@@ -21,6 +21,7 @@ function AssignTask() {
   let { id } = useParams();
   const { accessToken } = useContext(UserContext);
   const [taskData, setTaskData] = useState([]);
+  const [error, setError] = useState("");
   let history = useHistory();
 
   //get selected task details
@@ -31,18 +32,18 @@ function AssignTask() {
         // console.log(response.data);
       })
       .catch((err) => {
-        console.log(err);
         console.log("Task not retrieved");
+        setError(err.message);
       });
   }, []);
 
   // assign task to all clients
   async function assignTaskToAll(clientTaskList) {
     return await API.apiAssignTask(clientTaskList, accessToken)
-      .then((response) => response.data)
+      .then((response) => response.status)
       .catch((err) => {
-        console.log(err);
-        console.log("Tasks not assigned");
+        console.log("Task assignment failed");
+        setError("Task assignment failed");
       });
   }
 
@@ -51,8 +52,8 @@ function AssignTask() {
     return API.apiGetClient()
       .then((response) => response.data)
       .catch((err) => {
-        console.log(err);
         console.log("Clients not received");
+        setError(err.message);
       });
   }
   // genetate client task list for db population
@@ -70,19 +71,28 @@ function AssignTask() {
     return await API.apiUpdateTaskStatus(id, data, accessToken)
       .then((response) => response.data)
       .catch((err) => {
-        console.log(err);
+        setError(err.message);
         console.log("Update task status failed");
       });
   }
 
   const handleClick = async () => {
-    const clientList = await getAllClients();
-    const clientTaskList = await createClientTaskList(clientList, id);
-    await assignTaskToAll(clientTaskList);
-    // const updateTaskStatusMsg = await updateTaskStatus(id);
-    await updateTaskStatus(id);
-    // console.log(updateTaskStatusMsg);
-    history.goBack();
+    try {
+      const clientList = await getAllClients();
+      const clientTaskList = await createClientTaskList(clientList, id);
+      const assignTask = await assignTaskToAll(clientTaskList);
+      if (parseInt(assignTask) === 200) {
+        await updateTaskStatus(id);
+        // console.log(updateTaskStatusMsg);
+        history.goBack();
+      } else {
+        throw new Error({ message: "Task assignment failed" });
+      }
+
+      // const updateTaskStatusMsg = await updateTaskStatus(id);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const classes = useStyles();
@@ -129,6 +139,7 @@ function AssignTask() {
           </Typography>
         </CardContent>
       </CardActionArea>
+      {error ? <h4 style={{ color: "red" }}>{error}</h4> : null}
       <CardActions>
         <Button
           size="small"
