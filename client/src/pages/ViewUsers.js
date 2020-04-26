@@ -24,8 +24,6 @@ export default function ViewUsers() {
   // "userstype":"client",
   // "clientsname":"Westbournepark Primary School"}
 
-  const customColumnStyle = { maxWidth: "100%", backgroundColor: "green" };
-
   return (
 
     <div style={{ clear: "both", marginTop: 100}}>

@@ -67,10 +67,11 @@ function Register() {
       })
       .catch((err) => {
         console.log(err);
-        swal("oooooPs,,,,,Error!");
+        swal("Error creating the record");
       });
     reset();
   };
+
   const classes = useStyles();
   return (
     <Container maxWidth="sm">
@@ -101,7 +102,7 @@ function Register() {
           label="Password"
           name="password"
           type="password"
-          inputRef={register({ required: true, minLength: 1 })}
+          inputRef={register({ required: true, minLength: 4 })}
         />
 
         <FormControl variant="outlined" className={classes.formControl}>
@@ -140,12 +141,12 @@ function Register() {
 
         {errors.name && (
           <h4 style={{ color: "red" }}>
-            User name needs to be minimum 4 charactors
+            USER NAME NEEDS TO BE MINIMUM 4 CHARACTORS
           </h4>
         )}
         {errors.password && (
           <h4 style={{ color: "red" }}>
-            Password needs to be minimum 1 charactors
+            PASSWORD NEEDS TO BE MINIMUM 4 CHARACTORS
           </h4>
         )}
         <Button
