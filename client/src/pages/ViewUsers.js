@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import MaterialTable from "material-table";
 import API from "../utils/API/API";
 
+
 export default function ViewUsers() {
   const [userData, setUserData] = useState([]);
   const [selectedRow, setSelectedRow] = useState(null);
@@ -23,9 +24,13 @@ export default function ViewUsers() {
   // "userstype":"client",
   // "clientsname":"Westbournepark Primary School"}
 
+  const customColumnStyle = { maxWidth: "10%", backgroundColor: "green" };
+
   return (
-    <div style={{ clear: "both", marginTop: 60 }}>
+
+    <div style={{ clear: "both", marginTop: 100 }}>
       <MaterialTable
+        
         title="Users"
         columns={[
           {
@@ -44,9 +49,11 @@ export default function ViewUsers() {
         }
         options={{
           sorting: true,
+          align: 'center',
           headerStyle: {
             backgroundColor: "#01579b",
             color: "#FFF",
+            
           },
 
           rowStyle: (rowData) => ({
@@ -54,6 +61,8 @@ export default function ViewUsers() {
               selectedRow && selectedRow.tableData.id === rowData.tableData.id
                 ? "#EEE"
                 : "#FFF",
+                
+                
           }),
         }}
       />
