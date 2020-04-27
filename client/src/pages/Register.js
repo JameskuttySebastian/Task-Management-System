@@ -80,7 +80,7 @@ function Register() {
         className={classes.root}
         style={{ margin: "auto", textAlign: "justify", paddingTop: 100 }}
       >
-        <h2 style={{ clear: "both" }}>USER CREATION FORM</h2>
+        <h2 style={{ clear: "both" }}>USER CREATION</h2>
         <TextField
           id="name"
           variant="outlined"

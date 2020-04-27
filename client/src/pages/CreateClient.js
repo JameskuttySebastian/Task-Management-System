@@ -93,7 +93,7 @@ function CreateClient() {
                     autoComplete="off"
                     style={{ margin: "auto", textAlign: "justify", paddingTop: 100 }}
                 >
-                    <h2 style={{ clear: "both" }}>CLIENT CREATION FORM</h2>
+                    <h2 style={{ clear: "both" }}>CLIENT CREATION</h2>
         
                         <PlacesAutocomplete
                             value={location}
