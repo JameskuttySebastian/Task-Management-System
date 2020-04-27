@@ -29,7 +29,8 @@ export default function ViewUsers() {
     <div style={{ clear: "both", marginTop: 100}}>
       <MaterialTable
         
-        title="Users"
+        title="USER INFORMATION RECORDS" 
+        style={{textTransform: "uppercase"}}
         
         
         columns={[
@@ -38,6 +39,7 @@ export default function ViewUsers() {
             title: "No",
             field: "usersid",
             type: "numeric",
+            
             
           },
           { title: "Name", field: "usersname", },
@@ -60,7 +62,8 @@ export default function ViewUsers() {
           headerStyle: {
             backgroundColor: "#01579b",
             color: "#FFF",
-            textAlign: "left"
+            textAlign: "left",
+            fontWeight: "bold"
           },
 
 
