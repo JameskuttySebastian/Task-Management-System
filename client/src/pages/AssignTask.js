@@ -101,7 +101,7 @@ function AssignTask() {
     <Card className={classes.root} style={{ marginTop: 100 }}>
       <CardActionArea>
         <CardContent>
-          <Typography gutterBottom variant="h3" component="h2">
+          <Typography gutterBottom variant="h3" component="h2" style={{textTransform: "uppercase"}}>
             {taskData.title}
           </Typography>
           <Typography variant="h5" component="h2">

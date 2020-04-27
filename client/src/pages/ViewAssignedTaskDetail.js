@@ -41,37 +41,37 @@ function ViewAssignedTaskDetail() {
     <Card className={classes.root} style={{ marginTop: 100 }}>
       <CardActionArea>
         <CardContent>
-          <Typography gutterBottom variant="h3" component="h2">
+          <Typography gutterBottom variant="h3" component="h2" style={{textTransform: "uppercase"}}>
             {assignedTaskDaskData.tasks_title}
           </Typography>
-          <Typography variant="h4" component="h2">
+          <Typography variant="h5" component="h2">
             Description
           </Typography>
           <Typography
             variant="body2"
-            color="textSecondary"
+            // color="textSecondary"
             component="p"
             style={{ marginTop: 10 }}
           >
             {assignedTaskDaskData.tasks_description}
           </Typography>
-          <Typography variant="h4" component="h2" style={{ marginTop: 20 }}>
+          <Typography variant="h5" component="h2" style={{ marginTop: 20 }}>
             Due Date
           </Typography>
           <Typography
             variant="body2"
-            color="textSecondary"
+            // color="textSecondary"
             component="p"
             style={{ marginTop: 10 }}
           >
             {assignedTaskDaskData.tasks_completedBy}
           </Typography>
-          <Typography variant="h4" component="h2" style={{ marginTop: 20 }}>
+          <Typography variant="h5" component="h2" style={{ marginTop: 20 }}>
             Status
           </Typography>
           <Typography
             variant="body2"
-            color="textSecondary"
+            // color="textSecondary"
             component="p"
             style={{ marginTop: 10 }}
           >

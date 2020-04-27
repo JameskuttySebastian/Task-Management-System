@@ -110,13 +110,16 @@ function Menu({ open, handleDrawerClose, handleLogOff, classes }) {
           paper: classes.drawerPaper,
         }}
       >
-        <div className={classes.drawerHeader}></div>
+        <div className={classes.drawerHeader}>
+        <IconButton onClick={handleDrawerClose}>
+          <ChevronRightIcon />
+        </IconButton>
+        </div>
         <h3 style={{ marginLeft: 20 }}>MENU ITEMS</h3>
         <Divider />
         <Link
           to="/landingpage"
           className={classes.link}
-          style={{ marginTop: 20, marginLeft: 50 }}
           onClick={handleDrawerClose}
         >
           Home

@@ -49,7 +49,7 @@ function CompleteAssignedTask() {
           </Typography>
           <Typography
             variant="body2"
-            color="textSecondary"
+            // color="textSecondary"
             component="p"
             style={{ marginTop: 10 }}
           >
@@ -60,7 +60,7 @@ function CompleteAssignedTask() {
           </Typography>
           <Typography
             variant="body2"
-            color="textSecondary"
+            // color="textSecondary"
             component="p"
             style={{ marginTop: 10 }}
           >
@@ -71,7 +71,7 @@ function CompleteAssignedTask() {
           </Typography>
           <Typography
             variant="body2"
-            color="textSecondary"
+            // color="textSecondary"
             component="p"
             style={{ marginTop: 10 }}
           >

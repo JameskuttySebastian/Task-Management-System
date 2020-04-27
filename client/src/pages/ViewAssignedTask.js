@@ -32,7 +32,7 @@ export default function ViewAssignedTask() {
 
         columns={[
           {
-            title: "ID No",
+            title: "No",
             field: "clienttasks_id",
             type: "numeric",
             width: 20,
