@@ -27,7 +27,9 @@ export default function ViewAssignedTask() {
   return (
     <div style={{ clear: "both", marginTop: 100 }}>
       <MaterialTable
-        title="All Assigned Tasks"
+        title="All Assigned Tasks records"
+        style={{textTransform: "uppercase"}}
+
         columns={[
           {
             title: "ID No",
@@ -52,6 +54,7 @@ export default function ViewAssignedTask() {
           headerStyle: {
             backgroundColor: "#01579b",
             color: "#FFF",
+            fontWeight: "bold"
           },
           rowStyle: (rowData) => ({
             backgroundColor:

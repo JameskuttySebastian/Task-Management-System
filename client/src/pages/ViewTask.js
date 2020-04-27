@@ -27,10 +27,12 @@ export default function ViewTask() {
   return (
     <div style={{ clear: "both", marginTop: 100 }}>
       <MaterialTable
-        title="Tasks"
+        title="TASKS INFORMATION RECORDS" 
+        style={{textTransform: "uppercase"}}
+
         columns={[
           {
-            title: "ID No",
+            title: "No",
             field: "tasksid",
             type: "numeric",
             width: 20,
@@ -52,6 +54,7 @@ export default function ViewTask() {
           headerStyle: {
             backgroundColor: "#01579b",
             color: "#FFF",
+            fontWeight: "bold"
           },
           rowStyle: (rowData) => ({
             backgroundColor:
