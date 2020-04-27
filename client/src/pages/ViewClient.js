@@ -20,7 +20,10 @@ export default function ViewClient() {
   return (
     <div style={{ clear: "both", marginTop: 100 }}>
       <MaterialTable
-        title="Client"
+        
+        title="CLIENTS INFORMATION RECORDS" 
+        style={{textTransform: "uppercase"}}
+
         columns={[
           {
             width: 20,
@@ -44,6 +47,7 @@ export default function ViewClient() {
           headerStyle: {
             backgroundColor: "#01579b",
             color: "#FFF",
+            fontWeight: "bold"
           },
           
           rowStyle: (rowData) => ({
