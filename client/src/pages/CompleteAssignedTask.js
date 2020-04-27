@@ -16,7 +16,7 @@ const useStyles = makeStyles({
   },
 });
 
-function ViewAssignedTaskDetail() {
+function CompleteAssignedTask() {
   let { id } = useParams();
   const [assignedTaskDaskData, setAssignedTaskDaskData] = useState([]);
   const [error, setError] = useState("");
@@ -88,11 +88,11 @@ function ViewAssignedTaskDetail() {
           variant="contained"
           style={{ clear: "both" }}
         >
-          Cancel
+          Cancle
         </Button>
       </CardActions>
     </Card>
   );
 }
 
-export default ViewAssignedTaskDetail;
+export default CompleteAssignedTask;
