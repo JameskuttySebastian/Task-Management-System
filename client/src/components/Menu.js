@@ -2,6 +2,8 @@ import React, { useContext } from "react";
 import Drawer from "@material-ui/core/Drawer";
 import { Link } from "react-router-dom";
 import Divider from "@material-ui/core/Divider";
+import IconButton from '@material-ui/core/IconButton';
+import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 
 import UserContext from "../utils/context/UserContext";
 
@@ -22,8 +24,12 @@ function Menu({ open, handleDrawerClose, handleLogOff, classes }) {
           paper: classes.drawerPaper,
         }}
       >
-        <div className={classes.drawerHeader}></div>
-        <h3 style={{ marginLeft: 20 }}>MENU ITEMS</h3>
+        <div className={classes.drawerHeader}>
+        <IconButton onClick={handleDrawerClose}>
+          <ChevronRightIcon />
+        </IconButton>
+        </div>
+        <h3 style={{ marginLeft: 20, marginTop: 0 }}>MENU ITEMS</h3>
         <Divider />
         <Link
           to="/landingpage"
