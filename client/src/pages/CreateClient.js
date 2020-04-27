@@ -49,6 +49,7 @@ function CreateClient() {
         setLocation(value);
         setCoordinates(loc);
         setAddress(bestMathcedResult.formatted_address);
+        
     };
 
     const onError = (status, clearSuggestions) => {
@@ -80,6 +81,7 @@ function CreateClient() {
                 swal("oooooPs,,,,,Error!");
             });
         reset();
+       
     };
     return (
         <div>
@@ -108,6 +110,7 @@ function CreateClient() {
                                             label="Client Name"
                                             name="name"
                                             inputRef={register({ required: true })}
+                                            
                                         />
                                         {loading ? <div>...loading</div> : null}
 
@@ -119,6 +122,7 @@ function CreateClient() {
                                             return (
                                                 <div {...getSuggestionItemProps(suggestion, { style })}>
                                                     {suggestion.description}
+                                                    
                                                 </div>
                                             );
                                         })}
