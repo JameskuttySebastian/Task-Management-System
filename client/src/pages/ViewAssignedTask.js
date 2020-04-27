@@ -25,7 +25,7 @@ export default function ViewAssignedTask() {
   };
 
   return (
-    <div style={{ clear: "both", marginTop: 60 }}>
+    <div style={{ clear: "both", marginTop: 100 }}>
       <MaterialTable
         title="All Assigned Tasks"
         columns={[

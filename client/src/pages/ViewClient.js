@@ -18,7 +18,7 @@ export default function ViewClient() {
   }, []);
 
   return (
-    <div style={{ clear: "both", marginTop: 60 }}>
+    <div style={{ clear: "both", marginTop: 100 }}>
       <MaterialTable
         title="Client"
         columns={[
@@ -45,7 +45,7 @@ export default function ViewClient() {
             backgroundColor: "#01579b",
             color: "#FFF",
           },
-
+          
           rowStyle: (rowData) => ({
             backgroundColor:
               selectedRow && selectedRow.tableData.id === rowData.tableData.id
