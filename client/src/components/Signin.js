@@ -39,7 +39,7 @@ export default function SignIn() {
   // for holing login info
   // setting user information
 
-  const { setUserId, setId, setName, setUserType, setAccessToken } = useContext(
+  const { setUserId, setId, setClientId, setName, setUserType, setAccessToken } = useContext(
     UserContext
   );
   // for getting user input
@@ -61,6 +61,7 @@ export default function SignIn() {
         console.log(res);
         setUserId(res.data.email);
         setId(res.data.id);
+        setClientId(res.data.clientId)
         setName(res.data.name);
         setUserType(res.data.userType);
         setAccessToken(res.data.accesstoken);

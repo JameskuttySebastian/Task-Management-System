@@ -60,7 +60,7 @@ export default {
     });
   },
 
-  // get all tasks
+  // get all assigned tasks
   apiGetAssignedTask: function () {
     return axios.get("/api/assignedTask");
   },
@@ -69,6 +69,13 @@ export default {
   apiGetAssignedTaskById: function (id) {
     return axios.get("/api/assignedTask/" + id);
   },
+
+  // get all assigned tasks for the client
+  apiGetAssignedTaskToClient: function (clientId) {
+    console.log("apiGetAssignedTaskToClient: function (clientId) : " + clientId);
+    return axios.get("/api/assignedTaskToClient/" + clientId);
+  },
+
 
   apiUpdateAssignedTaskStatus: function (id, status, accessToken) {
     return axios.put("/api/assignedTask/" + id, status, {
