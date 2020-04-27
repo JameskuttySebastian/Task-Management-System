@@ -29,7 +29,7 @@ function AssignTask() {
     API.apiGetTaskById(id)
       .then((response) => {
         setTaskData(response.data);
-        // console.log(response.data);
+        console.log(response.data);
       })
       .catch((err) => {
         console.log("Task not retrieved");
@@ -158,8 +158,7 @@ function AssignTask() {
           onClick={() => history.goBack()}
           variant="contained"
           style={{ clear: "both" }}
-        >
-          Cancle
+        > Cancel
         </Button>
       </CardActions>
     </Card>
