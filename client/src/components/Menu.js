@@ -116,11 +116,11 @@ function Menu({ open, handleDrawerClose, handleLogOff, classes }) {
           Home
         </Link>
         <Link
-          to="/register"
+          to="/viewAssignedTaskToClient"
           className={classes.link}
           onClick={handleDrawerClose}
         >
-          Create Users
+          View Assigned Task
         </Link>
         <Link
           to="/"

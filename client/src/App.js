@@ -12,6 +12,8 @@ import ViewTasks from "./pages/ViewTask";
 import AssignTasks from "./pages/AssignTask";
 import ViewAssignedTask from "./pages/ViewAssignedTask";
 import ViewAssignedTaskDetail from "./pages/ViewAssignedTaskDetail";
+import ViewAssignedTaskToClient from "./pages/ViewAssignedTaskToClient";
+import CompleteAssignedTask from "./pages/CompleteAssignedTask";
 
 import {
   BrowserRouter as Router,
@@ -84,6 +86,7 @@ function App() {
   //for user context
   const [userId, setUserId] = useState("");
   const [id, setId] = useState("");
+  const [clientId, setClientId] = useState("");
   const [name, setName] = useState("");
   const [userType, setUserType] = useState("");
   const [accessToken, setAccessToken] = useState("");
@@ -110,6 +113,18 @@ function App() {
       return false;
     }
   };
+  const isAdminAuthenticated = () => {
+    if (accessToken && userType === "admin") return true;
+    else {
+      return false;
+    }
+  };
+  const isClientAuthenticated = () => {
+    if (accessToken && userType === "client") return true;
+    else {
+      return false;
+    }
+  };
 
   return (
     <UserContext.Provider
@@ -118,6 +133,8 @@ function App() {
         setUserId,
         id,
         setId,
+        clientId,
+        setClientId,
         name,
         setName,
         userType,
@@ -183,7 +200,7 @@ function App() {
               <Route
                 path="/register"
                 render={() =>
-                  isAuthenticated() ? (
+                  isAdminAuthenticated() ? (
                     <Register />
                   ) : (
                     <Redirect
@@ -197,7 +214,7 @@ function App() {
               <Route
                 path="/createClient"
                 render={() =>
-                  isAuthenticated() ? (
+                  isAdminAuthenticated() ? (
                     <CreateClient />
                   ) : (
                     <Redirect
@@ -211,7 +228,7 @@ function App() {
               <Route
                 path="/createTask"
                 render={() =>
-                  isAuthenticated() ? (
+                  isAdminAuthenticated() ? (
                     <CreateTask />
                   ) : (
                     <Redirect
@@ -225,7 +242,7 @@ function App() {
               <Route
                 path="/viewUser"
                 render={() =>
-                  isAuthenticated() ? (
+                  isAdminAuthenticated() ? (
                     <ViewUser />
                   ) : (
                     <Redirect
@@ -239,7 +256,7 @@ function App() {
               <Route
                 path="/viewClient"
                 render={() =>
-                  isAuthenticated() ? (
+                  isAdminAuthenticated() ? (
                     <ViewClient />
                   ) : (
                     <Redirect
@@ -253,7 +270,7 @@ function App() {
               <Route
                 path="/viewTasks"
                 render={() =>
-                  isAuthenticated() ? (
+                  isAdminAuthenticated() ? (
                     <ViewTasks />
                   ) : (
                     <Redirect
@@ -268,7 +285,7 @@ function App() {
               <Route
                 path="/viewAssignedTask"
                 render={() =>
-                  isAuthenticated() ? (
+                  isAdminAuthenticated() ? (
                     <ViewAssignedTask />
                   ) : (
                     <Redirect
@@ -282,7 +299,7 @@ function App() {
               <Route
                 path="/ViewAssignedTaskDetail/:id"
                 render={() =>
-                  isAuthenticated() ? (
+                  isAdminAuthenticated() ? (
                     <ViewAssignedTaskDetail />
                   ) : (
                     <Redirect
@@ -297,7 +314,7 @@ function App() {
               <Route
                 path="/assignTasks/:id"
                 render={() =>
-                  isAuthenticated() ? (
+                  isAdminAuthenticated() ? (
                     <AssignTasks />
                   ) : (
                     <Redirect
@@ -308,6 +325,41 @@ function App() {
                   )
                 }
               />
+
+              <Route
+                path="/viewAssignedTaskToClient"
+                render={() =>
+                  isClientAuthenticated() ? (
+                    <ViewAssignedTaskToClient />
+                  ) : (
+                    <Redirect
+                      to={{
+                        pathname: "/",
+                      }}
+                    />
+                  )
+                }
+              />
+
+              <Route
+                path="/completeAssignedTask/:id"
+                render={() =>
+                  isClientAuthenticated() ? (
+                    <CompleteAssignedTask />
+                  ) : (
+                    <Redirect
+                      to={{
+                        pathname: "/",
+                      }}
+                    />
+                  )
+                }
+              />
+
+
+
+
+
             </Switch>
           </Router>
         </Container>
