@@ -25,18 +25,21 @@ export default function ViewTask() {
   };
 
   return (
-    <div style={{ clear: "both", marginTop: 60 }}>
+    <div style={{ clear: "both", marginTop: 100 }}>
       <MaterialTable
-        title="Tasks"
+        title="TASKS INFORMATION RECORDS" 
+        style={{textTransform: "uppercase"}}
+
         columns={[
           {
-            title: "ID No",
+            title: "No",
             field: "tasksid",
             type: "numeric",
-            width: "10%",
+            width: 20,
             textAlign: "center",
           },
           { title: "Title", field: "taskstitle" },
+          { width: 500,textAlign: "justify", title: "Details", field: "tasksdescription"},
           { title: "Completed by", field: "taskscompletedBy" },
           { title: "Status", field: "tasksstatus" },
           { title: "Created by", field: "usersname" },
@@ -51,6 +54,7 @@ export default function ViewTask() {
           headerStyle: {
             backgroundColor: "#01579b",
             color: "#FFF",
+            fontWeight: "bold"
           },
           rowStyle: (rowData) => ({
             backgroundColor:

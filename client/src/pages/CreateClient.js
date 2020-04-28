@@ -49,6 +49,7 @@ function CreateClient() {
         setLocation(value);
         setCoordinates(loc);
         setAddress(bestMathcedResult.formatted_address);
+        
     };
 
     const onError = (status, clearSuggestions) => {
@@ -80,6 +81,7 @@ function CreateClient() {
                 swal("oooooPs,,,,,Error!");
             });
         reset();
+       
     };
     return (
         <div>
@@ -91,7 +93,7 @@ function CreateClient() {
                     autoComplete="off"
                     style={{ margin: "auto", textAlign: "justify", paddingTop: 100 }}
                 >
-                    <h2 style={{ clear: "both" }}>CLIENT CREATION FORM</h2>
+                    <h2 style={{ clear: "both" }}>CLIENT CREATION</h2>
         
                         <PlacesAutocomplete
                             value={location}
@@ -108,6 +110,7 @@ function CreateClient() {
                                             label="Client Name"
                                             name="name"
                                             inputRef={register({ required: true })}
+                                            
                                         />
                                         {loading ? <div>...loading</div> : null}
 
@@ -119,6 +122,7 @@ function CreateClient() {
                                             return (
                                                 <div {...getSuggestionItemProps(suggestion, { style })}>
                                                     {suggestion.description}
+                                                    
                                                 </div>
                                             );
                                         })}

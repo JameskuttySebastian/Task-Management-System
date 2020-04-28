@@ -51,7 +51,7 @@ export default function CreateTask() {
           autoComplete="off"
           style={{ margin: "auto", textAlign: "justify", paddingTop: 100 }}
         >
-          <h2 style={{ clear: "both" }}>TASK CREATION FORM</h2>
+          <h2 style={{ clear: "both" }}>TASK CREATION</h2>
           <TextField
             id="title"
             variant="outlined"

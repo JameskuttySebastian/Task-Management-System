@@ -18,11 +18,15 @@ export default function ViewClient() {
   }, []);
 
   return (
-    <div style={{ clear: "both", marginTop: 60 }}>
+    <div style={{ clear: "both", marginTop: 100 }}>
       <MaterialTable
-        title="Client"
+        
+        title="CLIENTS INFORMATION RECORDS" 
+        style={{textTransform: "uppercase"}}
+
         columns={[
           {
+            width: 20,
             title: "No",
             field: "id",
             type: "numeric",
@@ -43,8 +47,9 @@ export default function ViewClient() {
           headerStyle: {
             backgroundColor: "#01579b",
             color: "#FFF",
+            fontWeight: "bold"
           },
-
+          
           rowStyle: (rowData) => ({
             backgroundColor:
               selectedRow && selectedRow.tableData.id === rowData.tableData.id
