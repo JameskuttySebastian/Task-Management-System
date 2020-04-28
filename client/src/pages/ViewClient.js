@@ -37,6 +37,10 @@ export default function ViewClient() {
             title: "Address",
             field: "address",
           },
+          {
+            title: "Email",
+            field: "email",
+          },
         ]}
         data={clientData}
         onRowClick={async (evt, selectedRows) =>
