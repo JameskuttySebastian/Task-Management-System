@@ -18,9 +18,9 @@ function LandingPage() {
         <div>
           <h3 style={{textTransform: "uppercase"}}>Welcome {name}</h3>
         </div>
-        <div className="banner-text" style={{ clear: "both" }}>
+        {/* <div className="banner-text" style={{ clear: "both" }}>
           <h1 style={{ textAlign: "center" }}>TASK MASTER PRO</h1>
-        </div>
+        </div> */}
         <p>
           Task Master Pro is an application which is allows groups of users to
           work together more cohesively to quickly and thoroughly complete
