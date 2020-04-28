@@ -45,7 +45,7 @@ function CreateClient() {
             lng: latLng.lng,
             placeID: bestMathcedResult.place_id
         }
-        console.log(bestMathcedResult);
+        // console.log(bestMathcedResult);
         setLocation(value);
         setCoordinates(loc);
         setAddress(bestMathcedResult.formatted_address);
@@ -53,7 +53,7 @@ function CreateClient() {
     };
 
     const onError = (status, clearSuggestions) => {
-        console.log('Google Maps API returned error with status: ', status)
+        // console.log('Google Maps API returned error with status: ', status)
         clearSuggestions();
     }
 
@@ -69,15 +69,15 @@ function CreateClient() {
             ...data,
             status: "Active",
         };
-        console.log(data);
+        // console.log(data);
 
         API.apiCreateClient(data, accessToken)
             .then((response) => {
-                console.log(response);
+                // console.log(response);
                 swal("Client Record Created Sucessfully!");
             })
             .catch((err) => {
-                console.log(err);
+                // console.log(err);
                 swal("oooooPs,,,,,Error!");
             });
         reset();

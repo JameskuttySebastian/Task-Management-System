@@ -27,10 +27,10 @@ function ViewAssignedTaskDetail() {
     API.apiGetAssignedTaskById(id)
       .then((response) => {
         setAssignedTaskDaskData(response.data[0]);
-        console.log(response.data);
+        // console.log(response.data);
       })
       .catch((err) => {
-        console.log("Assigned Task not retrieved");
+        // console.log("Assigned Task not retrieved");
         setError(err.message);
       });
   }, []);

@@ -11,10 +11,10 @@ export default function ViewUsers() {
     API.apiGetUser()
       .then(async (response) => {
         await setUserData(response.data);
-        console.log(response.data);
+        // console.log(response.data);
       })
       .catch((err) => {
-        console.log(err);
+        console.log("Users not found");
       });
   }, []);
 

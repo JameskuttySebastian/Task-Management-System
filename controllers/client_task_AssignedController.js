@@ -64,17 +64,17 @@ module.exports = {
   },
 
   create: async function (req, res) {
-    console.log(req.body);
+    // console.log(req.body);
     try {
       // checking the user is already logged in
       const userId = await isAuth(req, res);
-      console.log("client_taskController : userId : " + userId);
+      // console.log("client_task_AssignedController : userId : " + userId);
 
       if (userId !== null && userId !== undefined) {
         await db.ClientTask.bulkCreate(req.body).then((result) => {
           res.status(200).json({ message: "ClientTasks created" });
         });
-        // console.log("client_taskController : result : " + result);
+        // console.log("client_task_AssignedController : result : " + result);
         //   res.send(JSON.stringify(result))
         //   res.json(result);
         // res.send({ message: "User created" });
@@ -82,17 +82,36 @@ module.exports = {
         throw new Error("Please login again");
       }
     } catch (err) {
-      console.log("Auth error : " + err.message);
+      // console.log("Auth error : " + err.message);
       res.status(401).json({ message: err.message });
     }
   },
 
-  update: function (req, res) {
-    db.ClientTask.update(req.body, { where: { id: req.params.id } })
-      .then((dbModel) =>
-        res.status(200).json({ message: "ClientTasks updated" })
-      )
-      .catch((err) => res.status(422).json(err));
+  update: async function (req, res) {
+
+    // console.log(req.body);
+    try {
+      // checking the user is already logged in
+      const userId = await isAuth(req, res);
+      // console.log("client_task_AssignedController : userId : " + userId);
+
+      if (userId !== null && userId !== undefined) {
+        await db.ClientTask
+        .update(req.body, { where: { id: req.params.id } })
+        .then((result) => {
+          res.status(200).json({ message: "Tasks status updated" });
+        });
+        // console.log("client_task_AssignedController : result : " + result);
+        //   res.send(JSON.stringify(result))
+        //   res.json(result);
+        // res.send({ message: "User created" });
+      } else {
+        throw new Error("Please login again");
+      }
+    } catch (err) {
+      // console.log("client_task_AssignedController : " + err.message);
+      res.status(422).json({ message: err.message });
+    }
   },
 
   remove: function (req, res) {

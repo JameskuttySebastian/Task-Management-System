@@ -30,7 +30,7 @@ module.exports = {
       )
       .then((dbModel) => res.status(200).json(dbModel))
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
         res.status(402).json({ message: "Task list info not found" });
       });
   },
@@ -43,23 +43,23 @@ module.exports = {
     })
       .then((dbModel) => res.status(200).json(dbModel))
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
         res.status(402).json({ message: "Task info not found" });
       });
   },
 
   create: async function (req, res) {
-    console.log(req.body);
+    // console.log(req.body);
     try {
       // checking the user is already logged in
       const userId = await isAuth(req, res);
-      console.log("taskController : userId : " + userId);
+      // console.log("taskController : userId : " + userId);
 
       if (userId !== null && userId !== undefined) {
         const result = await db.Task.create(req.body).then((result) => {
           // console.log(result);
         });
-        console.log("taskController : result : " + result);
+        // console.log("taskController : result : " + result);
         //   res.send(JSON.stringify(result))
         //   res.json(result);
         // res.send({ message: "User created" });
@@ -68,7 +68,7 @@ module.exports = {
         throw new Error("Please login again");
       }
     } catch (err) {
-      console.log("Auth error : " + err.message);
+      // console.log("Auth error : " + err.message);
       res.status(401).json({ message: err.message });
     }
   },
@@ -77,7 +77,7 @@ module.exports = {
     db.Task.update(req.body, { where: { id: req.params.id } })
       .then((dbModel) => res.status(200).json({ message: "Task updated" }))
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
         res.status(422).json({ message: "Task update failed" });
       });
   },
