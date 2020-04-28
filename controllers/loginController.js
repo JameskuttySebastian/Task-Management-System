@@ -43,6 +43,7 @@ module.exports = {
         result.id,
         result.type,
         result.name,
+        result.ClientId,
         res,
         accesstoken
       );

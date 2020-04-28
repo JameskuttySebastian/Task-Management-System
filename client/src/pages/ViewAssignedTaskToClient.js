@@ -1,33 +1,37 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import MaterialTable from "material-table";
 import API from "../utils/API/API";
 import { useHistory } from "react-router-dom";
 import AssignmentOutlinedIcon from "@material-ui/icons/AssignmentOutlined";
+import UserContext from "../utils/context/UserContext";
 
-export default function ViewAssignedTask() {
-  const [assignedTaskData, setAssignedTaskData] = useState([]);
+export default function ViewAssignedTaskToClient() {
+
+  const { clientId } = useContext(UserContext);
+  const [clientAssignedTaskData, setClientAssignedTaskData] = useState([]);
   const [selectedRow, setSelectedRow] = useState(null);
   const history = useHistory();
 
   useEffect(() => {
-    API.apiGetAssignedTask()
+    console.log("useEffect Started");
+    API.apiGetAssignedTaskToClient(clientId)
       .then((response) => {
-        setAssignedTaskData(response.data);
-        // console.log(response.data);
+        setClientAssignedTaskData(response.data);
+        console.log(response.data);
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
 
-  const viewAssignedTaskDetail = (e, rowData) => {
-    history.push(`/viewAssignedTaskDetail/${rowData.clienttasks_id}`);
+  const completeAssignedTask = (e, rowData) => {
+    history.push(`/completeAssignedTask/${rowData.clienttasks_id}`);
   };
 
   return (
     <div style={{ clear: "both", marginTop: 60 }}>
       <MaterialTable
-        title="All Assigned Tasks"
+        title="Assigned Tasks"
         columns={[
           {
             title: "ID No",
@@ -38,11 +42,10 @@ export default function ViewAssignedTask() {
           },
           { title: "Client", field: "clients_name" },
           { title: "Title", field: "tasks_title" },
-          { title: "Details", field: "tasks_description" },
           { title: "Completed by", field: "tasks_completedBy" },
           { title: "Status", field: "clienttasks_status" },
         ]}
-        data={assignedTaskData}
+        data={clientAssignedTaskData}
         onRowClick={async (evt, selectedRows) =>
           await setSelectedRow(selectedRows)
         }
@@ -63,8 +66,8 @@ export default function ViewAssignedTask() {
         actions={[
           (rowData) => ({
             icon: AssignmentOutlinedIcon,
-            tooltip: "View Details",
-            onClick: (event, rowData) => viewAssignedTaskDetail(event, rowData),
+            tooltip: "Complete Task",
+            onClick: (event, rowData) => completeAssignedTask(event, rowData),
           }),
         ]}
       />
