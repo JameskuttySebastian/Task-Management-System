@@ -16,7 +16,7 @@ function LandingPage() {
     >
       <Grid item xs={12}>
         <div>
-          <h4>Welcome {name}</h4>
+          <h3 style={{textTransform: "uppercase"}}>Welcome {name}</h3>
         </div>
         <div className="banner-text" style={{ clear: "both" }}>
           <h1 style={{ textAlign: "center" }}>TASK MASTER PRO</h1>
