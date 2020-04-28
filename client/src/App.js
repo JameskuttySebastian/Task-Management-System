@@ -46,14 +46,7 @@ const useStyles = makeStyles((theme) => ({
       duration: theme.transitions.duration.leavingScreen,
     }),
   },
-  appBarShift: {
-    width: `calc(100% - ${drawerWidth}px)`,
-    transition: theme.transitions.create(["margin", "width"], {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-    marginRight: drawerWidth,
-  },
+  
   title: {
     flexGrow: 1,
     float: "left",
@@ -159,9 +152,7 @@ function App() {
             color: "#FFF",
           }}
           position="fixed"
-          className={clsx(classes.appBar, {
-            [classes.appBarShift]: open,
-          })}
+          
         >
           <Container>
             <div style={{ display: "flex" }}>
