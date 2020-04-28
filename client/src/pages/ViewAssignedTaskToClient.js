@@ -13,7 +13,7 @@ export default function ViewAssignedTaskToClient() {
   const history = useHistory();
 
   useEffect(() => {
-    console.log("useEffect Started");
+    // console.log("useEffect Started");
     API.apiGetAssignedTaskToClient(clientId)
       .then((response) => {
         setClientAssignedTaskData(response.data);
@@ -29,7 +29,7 @@ export default function ViewAssignedTaskToClient() {
   };
 
   return (
-    <div style={{ clear: "both", marginTop: 60 }}>
+    <div style={{ clear: "both", marginTop: 100 }}>
       <MaterialTable
         title="Assigned Tasks"
         columns={[
