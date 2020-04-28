@@ -11,7 +11,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
+.makeStyles-link-9 {
+  margin-right: 30px;
+  margin-left: 30px;
+ text-align: center;
+}
+h3 {
+  text-align: center;
+}
 @media only screen and (max-width: 600px) {
   #heading {
     font-size: 1.25rem;
@@ -20,3 +27,4 @@ code {
     margin-top: 3px !important;
   }
 }
+
