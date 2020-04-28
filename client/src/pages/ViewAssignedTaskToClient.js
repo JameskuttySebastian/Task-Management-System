@@ -17,10 +17,10 @@ export default function ViewAssignedTaskToClient() {
     API.apiGetAssignedTaskToClient(clientId)
       .then((response) => {
         setClientAssignedTaskData(response.data);
-        console.log(response.data);
+        // console.log(response.data);
       })
       .catch((err) => {
-        console.log(err);
+        console.log("Tasks not found");
       });
   }, []);
 

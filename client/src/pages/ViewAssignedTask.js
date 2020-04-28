@@ -16,7 +16,7 @@ export default function ViewAssignedTask() {
         // console.log(response.data);
       })
       .catch((err) => {
-        console.log(err);
+        console.log("Tasks not found!..");
       });
   }, []);
 

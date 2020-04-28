@@ -72,13 +72,13 @@ export default {
 
   // get all assigned tasks for the client
   apiGetAssignedTaskToClient: function (clientId) {
-    console.log("apiGetAssignedTaskToClient: function (clientId) : " + clientId);
+    // console.log("apiGetAssignedTaskToClient: function (clientId) : " + clientId);
     return axios.get("/api/assignedTaskToClient/" + clientId);
   },
 
 
   apiUpdateAssignedTaskStatus: function (id, status, accessToken) {
-    return axios.put("/api/assignedTask/" + id, status, {
+    return axios.put("/api/assignedTaskToClient/" + id, status, {
       headers: { authorization: "Bearer " + accessToken },
     });
   },

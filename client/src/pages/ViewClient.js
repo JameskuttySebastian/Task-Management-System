@@ -10,10 +10,10 @@ export default function ViewClient() {
     API.apiGetClient()
       .then(async (response) => {
         await setClientData(response.data);
-        console.log(response.data);
+        // console.log(response.data);
       })
       .catch((err) => {
-        console.log(err);
+        console.log("Clients not found");
       });
   }, []);
 

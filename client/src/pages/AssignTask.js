@@ -52,7 +52,7 @@ function AssignTask() {
     return API.apiGetClient()
       .then((response) => response.data)
       .catch((err) => {
-        console.log("Clients not received");
+        // console.log("Clients not received");
         setError(err.message);
       });
   }
@@ -72,7 +72,7 @@ function AssignTask() {
       .then((response) => response.data)
       .catch((err) => {
         setError(err.message);
-        console.log("Update task status failed");
+        // console.log("Update task status failed");
       });
   }
 
