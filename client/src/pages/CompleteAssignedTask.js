@@ -32,13 +32,12 @@ function CompleteAssignedTask() {
       .then((response) => {
         const taskData = response.data[0];
         setAssignedTaskData(taskData);
-        if (taskData.clienttasks_status === "Assigned"){
+        if (taskData.clienttasks_status === "Assigned") {
           setViewStatusChangeButton(true);
-          setTaskState("Start Task") ;
-        }
-        else if (taskData.clienttasks_status === "Started"){
-            setViewStatusChangeButton(true);
-            setTaskState("Complete Task") ;
+          setTaskState("Start Task");
+        } else if (taskData.clienttasks_status === "Started") {
+          setViewStatusChangeButton(true);
+          setTaskState("Complete Task");
         }
       })
       .catch((err) => {
@@ -48,30 +47,31 @@ function CompleteAssignedTask() {
   }, []);
 
   // update task status
-  async function updateAssignedTaskStatus(id) {
+  function updateAssignedTaskStatus(id) {
     let data = { status: "Assigned" };
-    if(assignedTaskData.clienttasks_status === "Assigned"){
+    if (assignedTaskData.clienttasks_status === "Assigned") {
       data = { status: "Started" };
-    }
-    else{
+    } else {
       data = { status: "Completed" };
-    }    
+    }
     // console.log("updateAssignedTaskStatus started"+ data);
-    return await API.apiUpdateAssignedTaskStatus(id, data, accessToken)
-      .then((response) => response.data)
+    return API.apiUpdateAssignedTaskStatus(id, data, accessToken);
+    // .then((response) => response.data)
+    // .catch((err) => {
+    //   setError(err.message);
+    //   // console.log("Update task status failed");
+    // });
+  }
+
+  const handleClick = () => {
+    // console.log("handleClick started");
+    updateAssignedTaskStatus(id)
+      .then(() => history.goBack())
       .catch((err) => {
         setError(err.message);
         // console.log("Update task status failed");
       });
-  }
-
-
-  const handleClick = async () => { 
-      // console.log("handleClick started");
-        await updateAssignedTaskStatus(id);       
-        history.goBack();
   };
-
 
   const classes = useStyles();
 
@@ -119,15 +119,17 @@ function CompleteAssignedTask() {
       </CardActionArea>
       {error ? <h4 style={{ color: "red" }}>{error}</h4> : null}
       <CardActions>
-      { viewStatusChangeButton ? <Button
-          size="small"
-          color="primary"
-          onClick={() => handleClick()}
-          variant="contained"
-          style={{ clear: "both" }}
-        >
-          {taskState}
-        </Button> : null}
+        {viewStatusChangeButton ? (
+          <Button
+            size="small"
+            color="primary"
+            onClick={() => handleClick()}
+            variant="contained"
+            style={{ clear: "both" }}
+          >
+            {taskState}
+          </Button>
+        ) : null}
         <Button
           size="small"
           color="secondary"
@@ -135,7 +137,7 @@ function CompleteAssignedTask() {
           variant="contained"
           style={{ clear: "both" }}
         >
-          Cancle
+          Cancel
         </Button>
       </CardActions>
     </Card>

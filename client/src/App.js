@@ -14,6 +14,8 @@ import ViewAssignedTask from "./pages/ViewAssignedTask";
 import ViewAssignedTaskDetail from "./pages/ViewAssignedTaskDetail";
 import ViewAssignedTaskToClient from "./pages/ViewAssignedTaskToClient";
 import CompleteAssignedTask from "./pages/CompleteAssignedTask";
+import Typography from "@material-ui/core/Typography";
+import "./index.css";
 
 import {
   BrowserRouter as Router,
@@ -54,7 +56,12 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1,
+    float: "left",
+    display: "inline-block",
+    padding: "16px 0px",
+    minWidth: 300,
   },
+
   hide: {
     display: "none",
   },
@@ -156,19 +163,29 @@ function App() {
             [classes.appBarShift]: open,
           })}
         >
-          <Toolbar style={{ float: "right" }}>
-            {accessToken ? (
-              <IconButton
-                color="inherit"
-                aria-label="open drawer"
-                edge="end"
-                onClick={handleDrawerOpen}
-                className={clsx(open && classes.hide)}
-              >
-                <MenuIcon />
-              </IconButton>
-            ) : null}
-          </Toolbar>
+          <Container>
+            <div style={{ display: "flex" }}>
+              <Typography variant="h4" id="heading" className={classes.title}>
+                Task Management
+              </Typography>
+
+              <Toolbar style={{ display: "inline-block", float: "right" }}>
+                {accessToken ? (
+                  <IconButton
+                    id="hamBurger"
+                    style={{ marginTop: 12 }}
+                    color="inherit"
+                    aria-label="open drawer"
+                    edge="end"
+                    onClick={handleDrawerOpen}
+                    className={clsx(open && classes.hide)}
+                  >
+                    <MenuIcon />
+                  </IconButton>
+                ) : null}
+              </Toolbar>
+            </div>
+          </Container>
         </AppBar>
         <Container>
           <Router>
@@ -355,11 +372,6 @@ function App() {
                   )
                 }
               />
-
-
-
-
-
             </Switch>
           </Router>
         </Container>
