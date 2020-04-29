@@ -52,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
     float: "left",
     display: "inline-block",
     padding: "16px 0px",
-    minWidth: 300,
+    // minWidth: 300,
   },
 
   hide: {
@@ -64,6 +64,7 @@ const useStyles = makeStyles((theme) => ({
   },
   drawerPaper: {
     width: drawerWidth,
+    backgroundColor: "#01579b",
   },
   drawerHeader: {
     display: "flex",
@@ -72,10 +73,18 @@ const useStyles = makeStyles((theme) => ({
     // necessary for content to be below app bar
     ...theme.mixins.toolbar,
     justifyContent: "flex-start",
+    color:"#FFF"
   },
   link: {
-    marginTop: 20,
-    marginLeft: 50,
+    // paddingTop: 15,
+    padding: 10 ,
+    paddingLeft: 15 ,
+    color: "#FFF",
+    // padding: "0.8em",
+    "&:hover": {
+      background: "darkblue"
+    },
+    
   },
 }));
 

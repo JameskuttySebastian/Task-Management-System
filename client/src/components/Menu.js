@@ -7,16 +7,6 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 
 import UserContext from "../utils/context/UserContext";
 
-import styled from 'styled-components';
-
-
-const HoverMenuLinks = styled.p`
-  color: #01579B;
-	:hover {
-    background: #C0C0C0;
-		cursor: pointer;
-	}
-`
 
 function Menu({ open, handleDrawerClose, handleLogOff, classes }) {
   const { userType } = useContext(UserContext);
@@ -40,71 +30,70 @@ function Menu({ open, handleDrawerClose, handleLogOff, classes }) {
           <ChevronRightIcon />
         </IconButton>
         </div>
-        <h3 style={{ marginLeft: 20, marginTop: 0 }}>MENU ITEMS</h3>
+        <h3 style={{ marginLeft: 10, marginTop: 20, color:"#FFF" }}>MENU ITEMS</h3>
         <Divider />
         <Link
           to="/landingpage"
           className={classes.link}
           onClick={handleDrawerClose}
         >
-          <HoverMenuLinks style= {{fontWeight: '900'}}>Home</HoverMenuLinks>  
+          Home  
         </Link>
         <Link
           to="/register"
           className={classes.link}
           onClick={handleDrawerClose}
         >
-          <HoverMenuLinks style= {{fontWeight: '900'}}>Create Users</HoverMenuLinks>
+          Create Users
         </Link>
         <Link
           to="/createClient"
           className={classes.link}
           onClick={handleDrawerClose}
         >
-          <HoverMenuLinks style= {{fontWeight: '900'}}>Create Client</HoverMenuLinks>
+          Create Client
         </Link>
         <Link
           to="/createTask"
           className={classes.link}
           onClick={handleDrawerClose}
         >
-          <HoverMenuLinks style= {{fontWeight: '900'}}>Create Task</HoverMenuLinks>
+          Create Task
         </Link>
         <Link
           to="/viewUser"
           className={classes.link}
           onClick={handleDrawerClose}
         >
-          <HoverMenuLinks style= {{fontWeight: '900'}}>View Users</HoverMenuLinks>
+          View Users
         </Link>
         <Link
           to="/viewClient"
           className={classes.link}
           onClick={handleDrawerClose}
         >
-          <HoverMenuLinks style= {{fontWeight: '900'}}>View Clients</HoverMenuLinks>
+          View Clients
         </Link>
         <Link
           to="/viewTasks"
           className={classes.link}
           onClick={handleDrawerClose}
         >
-          <HoverMenuLinks style= {{fontWeight: '900'}}>Assign Tasks</HoverMenuLinks>
+          Assign Tasks
         </Link>
         <Link
           to="/viewAssignedTask"
           className={classes.link}
           onClick={handleDrawerClose}
         >
-          <HoverMenuLinks style= {{fontWeight: '900'}}>View Assigned Tasks</HoverMenuLinks>
+          View Assigned Tasks
         </Link>
         <Link
           to="/"
-          className={classes.link}
-          style={{ marginTop: 20, marginLeft: 50 }}
+          className={classes.link}          
           onClick={handleLogOff}
         >
-          <HoverMenuLinks style= {{fontWeight: '900'}}>Logoff</HoverMenuLinks>
+          Logoff
         </Link>
       </Drawer>
     );
@@ -133,14 +122,14 @@ function Menu({ open, handleDrawerClose, handleLogOff, classes }) {
           className={classes.link}
           onClick={handleDrawerClose}
         >
-          <HoverMenuLinks style= {{fontWeight: '900'}}>Home</HoverMenuLinks>
+          Home
         </Link>
         <Link
           to="/viewAssignedTaskToClient"
           className={classes.link}
           onClick={handleDrawerClose}
         >
-          <HoverMenuLinks style= {{fontWeight: '900'}}>View Assigned Task</HoverMenuLinks>
+          View Assigned Task
         </Link>
         <Link
           to="/"
@@ -148,7 +137,7 @@ function Menu({ open, handleDrawerClose, handleLogOff, classes }) {
           style={{ marginTop: 200, marginLeft: 50 }}
           onClick={handleLogOff}
         >
-          <HoverMenuLinks style= {{fontWeight: '900'}}>Logoff</HoverMenuLinks>
+          Logoff
           
         </Link>
       </Drawer>
