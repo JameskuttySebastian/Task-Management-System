@@ -22,7 +22,7 @@ function LandingPage() {
           <h1 style={{ textAlign: "center" }}>TASK MASTER PRO</h1>
         </div> */}
         <p>
-          Task Master Pro is an application which is allows groups of users to
+          Task Management is an application which is allows groups of users to
           work together more cohesively to quickly and thoroughly complete
           assigned tasks. Features such as time tracking and project tracking
           ensure that all given tasks are covered and progress reports are up to
