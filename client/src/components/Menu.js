@@ -134,7 +134,6 @@ function Menu({ open, handleDrawerClose, handleLogOff, classes }) {
         <Link
           to="/"
           className={classes.link}
-          style={{ marginTop: 200, marginLeft: 50 }}
           onClick={handleLogOff}
         >
           Logoff

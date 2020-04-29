@@ -75,9 +75,9 @@ export default function SignIn() {
   }
 
   return (
-    <Container component="main" maxWidth="xs" style={{ clear: "both", marginTop: 100 }}>
+    <Container component="main" maxWidth="xs" style={{ clear: "both", marginTop: 150 }}>
       <CssBaseline />
-      <div className={classes.paper}>
+      <div className={classes.paper}>        
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
         </Avatar>
@@ -122,6 +122,8 @@ export default function SignIn() {
           </Button>
         </form>
         {error ? <h4 style={{ color: "red" }}>{error}</h4> : null}
+        <p style={{ color: "red" }}>Default Username : admin@mail.com</p>
+        <p style={{ color: "red" }}>Default Password : 1</p>
       </div>
     </Container>
   );
