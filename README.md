@@ -1,8 +1,21 @@
 # TASK MANAGEMENT
 
+An application to assign and track the tasks.
+
+## Motivation
+
+The motivation behind this project is a real-world issue faced by one of the project team member in his workplace. There is a real need for assign tasks to clients and track their progress, but the organization does not want to use any off the shelf product due to privacy issues. As a team, we decided to do a  project that can create and assign tasks and track their progress. It also includes authentication and authorization. 
+
+## User Stories
+- As an admin I want to create clients.
+- As an admin, I want to create and assign tasks to clients
+- As an admin, I want to monitor the progress of tasks
+- As a client, I want to update progress of tasks.
+- As a client, I want to monitor the progress of the tasks.
+
 ![Home Page](./img/home.PNG)
 
-<P> Task Management is an application which is  allows groups of users to work together more cohesively to quickly and thoroughly complete assigned tasks. Features such as time tracking and project tracking ensure that all given tasks are covered and progress reports are up to date. Task Master Pro is mobile-first application and including other functions such google maps and address retrival, email syncing, collaborative interfaces for all users. Task Master Pro application is related to Project Management software, Time Management software, Professional Services Automation software. </P>
+Task Management is an application which is  allows groups of users to work together more cohesively to quickly and thoroughly complete assigned tasks. Features such as time tracking and project tracking ensure that all given tasks are covered and progress reports are up to date. Task Master Pro is mobile-first application and including other functions such google maps and address retrival, email syncing, collaborative interfaces for all users. Task Master Pro application is related to Project Management software, Time Management software, Professional Services Automation software.
 
 ## Functionalities
 
@@ -13,9 +26,14 @@
 - Assign Tasks
 - Start and Complete Tasks
 
-<h4>Technologies Used </h4>
-
-Application build with technologies such as JavaScript, ReactJS, NodeJs, Express, Mysql and Materia-UI mainly, and we used Google API service for address serch functionality. Furthermore we install JWT, Cors, Axios Sequalize NPM packages in order to obtain middleware support
+## Technologies Used 
+- React
+- JavaScript
+- Node
+- Express
+- MySQL
+- Material UI
+- JWT
 
 ## Links
 
