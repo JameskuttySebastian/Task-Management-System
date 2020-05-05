@@ -95,7 +95,7 @@ We use [Git](https://git-scm.com/) for versioning.
 
 [Jameskutty Sebastian](https://github.com/JameskuttySebastian)
 
-[Chandu Koritala](https://github.com/ChanduKoritala)
+[Sri Koritala](https://github.com/ChanduKoritala)
 
 [Anu Dambaladeniya](https://github.com/anu-dam)
 
