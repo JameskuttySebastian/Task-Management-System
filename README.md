@@ -35,11 +35,23 @@ Task Management is an application which is  allows groups of users to work toget
 - Material UI
 - JWT
 
-## Links
+# Links
 
-[Heroku Repository](https://team-task-management-system.herokuapp.com)
+## Repository
 
-[GIT Repository](https://github.com/JameskuttySebastian/Task-Management-System)
+- Github
+
+  > https://github.com/JameskuttySebastian/Task-Management-System
+
+## Deployed Application URL
+
+- Heroku
+
+  > https://team-task-management-system.herokuapp.com
+
+
+
+
 
 ## Getting Started
 
