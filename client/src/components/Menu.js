@@ -40,19 +40,20 @@ function Menu({ open, handleDrawerClose, handleLogOff, classes }) {
           Home  
         </Link>
         <Link
-          to="/register"
-          className={classes.link}
-          onClick={handleDrawerClose}
-        >
-          Create Users
-        </Link>
-        <Link
           to="/createClient"
           className={classes.link}
           onClick={handleDrawerClose}
         >
           Create Client
         </Link>
+        <Link
+          to="/register"
+          className={classes.link}
+          onClick={handleDrawerClose}
+        >
+          Create Users
+        </Link>
+        
         <Link
           to="/createTask"
           className={classes.link}
